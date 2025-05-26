@@ -1,16 +1,13 @@
 import React from "react";
-import Button from "./Button";
-import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+
 interface CardProps {
   content1: string;
   content2: string;
-  btn?: string;
   link?: string;
   image: string;
 }
 
-const Card: React.FC<CardProps> = ({ content1, content2, btn, link, image }) => {
+const Card: React.FC<CardProps> = ({ content1, content2,link, image }) => {
   return (
     <button
     
