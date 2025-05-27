@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({
   image = "default.jpg",
   content1 = "Default content",
   content2 = "Default content",
-  link = "#",
+  link = "/TechService/default",
 }) => {
   return (
     <motion.div
@@ -21,7 +21,7 @@ const Card: React.FC<CardProps> = ({
       transition={{ duration: 0.8, delay: 0.2 }}
       className="w-full max-w-[300px] bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105"
     >
-       <a href={`/TechService/${link}`}>
+    <a href={`/TechService/${link}`}>
         <button
         
          className="flex p-4">

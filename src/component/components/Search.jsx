@@ -48,7 +48,7 @@ const SearchCards = () => {
       {showSuggestions && (
         <div className="suggestions absolute bg-white border border-gray-300 rounded-lg shadow-md mt-1 z-10 w-[300px]">
           {filteredCards.map((card, index) => (
-            <button
+            <div
               key={index}
               type="button"
               className="suggestion-card text-left w-full"
@@ -58,8 +58,8 @@ const SearchCards = () => {
               }}
               aria-label={`Select ${card.content1}`}
             >
-              <Card image={card.image} content1={card.content1} content2={card.content2} link={link} />
-            </button>
+              <Card image={card.image} content1={card.content1} content2={card.content2} link={card.link} />
+            </div>
           ))}
         </div>
       )}
