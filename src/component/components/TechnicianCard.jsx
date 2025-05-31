@@ -5,8 +5,8 @@ const TechnicianCard = ({ tech }) => {
     <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4">
       <div className="flex items-start">
         <img
-          src={tech.profilePhoto || '/default-avatar.png'}
-          alt={tech.name}
+          src={tech.profile_photo || '/default-avatar.png'}
+          alt={tech.full_name}
           className="w-16 h-16 rounded-full object-cover"
         />
 
@@ -46,6 +46,9 @@ const TechnicianCard = ({ tech }) => {
             </p>
             <p className="text-sm text-gray-600">
               <span className="font-medium">Distance:</span> {tech.distance} km
+            </p>
+            <p className="text-sm text-gray-600">
+              <span className="font-medium">Location:</span> {tech.city}
             </p>
           </div>
 

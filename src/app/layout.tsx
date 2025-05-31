@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ServiceProvider } from "@/lib/ServiceContext"; // Adjust path if needed
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,7 +26,9 @@ export default function RootLayout(
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ServiceProvider>
           {children}
+          </ServiceProvider>
       </body>
     </html>
   );

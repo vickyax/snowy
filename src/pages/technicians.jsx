@@ -1,18 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import TechnicianCard from '@/component/components/TechnicianCard'; // Adjust import as needed
 import '@/app/globals.css';
 const TechnicianPage = () => {
   const [userLocation, setUserLocation] = useState('');
   const [selectedService, setSelectedService] = useState('');
+  const [allTechnicians, setAllTechnicians] = useState([]);
   const [technicians, setTechnicians] = useState([]);
   const [loading, setLoading] = useState(true);
   const [geoError, setGeoError] = useState('');
   const [showTechRegistration, setShowTechRegistration] = useState(false);
   const [locationSuggestions, setLocationSuggestions] = useState([]);
-
+  const debounceTimeout = useRef();
+  useEffect(() => {
+    const fetchAllTechnicians = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`/api/techdata?ts=${Date.now()}`,{ cache: "no-store" }); // This should return all technicians
+        const data = await response.json();
+        setAllTechnicians(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchAllTechnicians();
+  }, []);
   const services = [
     'AC Repair', 'Refrigerator', 'Washing Machine',
-    'Oven', 'Computer', 'Mobile'
+    'Oven', 'Computer', 'Mobile','Wifi Router', 'Tv Repair'
   ];
 const getLocation = async () => {
   try {
@@ -35,37 +51,62 @@ const getLocation = async () => {
 const handleLocationChange = async (e) => {
   const input = e.target.value;
   setUserLocation(input);
-
+  if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
   if (input.length < 2) {
     setLocationSuggestions([]);
     return;
   }
 
-  try {
-    const res = await fetch(`/api/location/autocomplete?q=${input}`);
-    const data = await res.json();
-    setLocationSuggestions(data.suggestions);
-  } catch (err) {
-    console.error('Autocomplete error:', err);
-  }
+  debounceTimeout.current = setTimeout(async () => {
+    try {
+      const res = await fetch(`/api/location/autocomplete?q=${input}`);
+      const data = await res.json();
+      setLocationSuggestions(data.suggestions);
+    } catch (err) {
+      console.error('Autocomplete error:', err);
+    }
+  }, 300); // 300ms debounce
 };
 
-const loadTechnicians = async () => {
-  try {
+const loadTechnicians = () => {
+  setLoading(true);
+  const filtered = allTechnicians.filter(
+    tech =>
+      (!userLocation || (tech.city && tech.city.toLowerCase().includes(userLocation.toLowerCase()))) &&
+      (!selectedService || (tech.expertise || []).some(exp => exp.toLowerCase().includes(selectedService.toLowerCase())))
+  );
+  setTechnicians(filtered);
+  setLoading(false);
+};
+//    useEffect(() => {
+//   getLocation().then(loadTechnicians);
+// }, []);
+useEffect(() => {
+  const filtered = allTechnicians.filter(
+    tech =>
+      (!userLocation || (tech.city && tech.city.toLowerCase().includes(userLocation.toLowerCase()))) &&
+      (!selectedService || (tech.expertise || []).some(exp => exp.toLowerCase().includes(selectedService.toLowerCase())))
+  );
+  setTechnicians(filtered);
+}, [allTechnicians, userLocation, selectedService]);
+
+useEffect(() => {
+  const fetchAllTechnicians = async () => {
     setLoading(true);
-    const response = await fetch(`/api/technicians?location=${userLocation}&service=${selectedService}`);
-    const data = await response.json();
-    setTechnicians(data);
-  } catch (err) {
-    console.error(err);
-  } finally {
-    setLoading(false);
-  }
-};
-   useEffect(() => {
-  getLocation().then(loadTechnicians);
+    try {
+      const response = await fetch(`/api/techdata?ts=${Date.now()}`, { cache: "no-store" });
+      const data = await response.json();
+      setAllTechnicians(data);
+      // Show all technicians by default
+      setTechnicians(data);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchAllTechnicians();
 }, []);
-
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -131,7 +172,7 @@ const loadTechnicians = async () => {
             <div className="self-end">
               <button
                 onClick={loadTechnicians}
-                className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                className="w-full cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
               >
                 Search
               </button>

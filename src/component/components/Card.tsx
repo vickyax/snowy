@@ -4,7 +4,7 @@ interface CardProps {
   content1: string;
   content2: string;
   link?: string;
-  image: string;
+  image?: string;
 }
 
 const Card: React.FC<CardProps> = ({ content1, content2,link, image }) => {

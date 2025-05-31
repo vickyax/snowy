@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts","**/*.svelte", "**/*.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts","**/*.svelte", "**/*.js", "src/component/Cards.jsx", "src/component/components/Scroller.jsx"],
   "exclude": ["node_modules"]
 }

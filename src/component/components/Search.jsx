@@ -1,22 +1,16 @@
 import React, { useState } from "react";
 import Card from "./SearchCard"; // Your Card component
+import { useServices } from "@/lib/ServiceContext";
 
-const cardsData = [
-  { image: "laptop.jpg", content1: "Laptop and PC", content2: "Screen replacement, Virus removal",link:"Laptop%20and%20PC" },
-  { image: "acimage.jpg", content1: "Air Conditioning Repair", content2: "Gas refill, compressor failure issues",link:"AC%20Repair" },
-  { image: "fridge.png", content1: "Refrigerator Emergency Care", content2: "Cooling failure, frost buildup, door seal leaks",link: "Refrigerator"},
-  { image: "smarttv.png", content1: "TV, Smart Tv Repair", content2: "flickering screens, audio delays",link:"Tv%20Repair" },
-  { image: "washingmachine.png", content1: "Washing Machine Repair", content2: "Draining problems, Washer not turning on",link: "Washing%20Machine"},
-  { image: "wifi.png", content1: "Wifi Router", content2: "slow connection, frequent drops, Overheating",link: "Wifi%20Router" },
-];
 
 const SearchCards = () => {
+  const { services, loading } = useServices();
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredCards, setFilteredCards] = useState(cardsData);
+  const [filteredCards, setFilteredCards] = useState(services);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const filterCards = (term) => {
-    const filtered = cardsData.filter(
+    const filtered = services.filter(
       (card) =>
         card.content1.toLowerCase().includes(term.toLowerCase()) ||
         card.content2.toLowerCase().includes(term.toLowerCase())

@@ -1,3 +1,4 @@
+//login.jsx
 import { useState } from 'react';
 import '@/app/globals.css';
 import { useRouter } from 'next/router';
@@ -8,7 +9,16 @@ const LoginPage = () => {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    expertise: [],
+    hourly_rate: '',
+    available: true,
+    location: '',
+    service_radius: '',
+    license_number: '',
+    insurance_info: '',
+    profile_photo: '',
+    city: '',
   });
   const [errors, setErrors] = useState({});
   const router = useRouter();
@@ -17,22 +27,64 @@ const LoginPage = () => {
   const validationErrors = validateForm();
   if (Object.keys(validationErrors).length === 0) {
     setErrors({});
+    let profilePhotoUrl = "";
+
+    // Upload profile photo if present and is a File
+    if (!isLogin && userRole === "technician" && formData.profile_photo instanceof File) {
+      const file = formData.profile_photo;
+      const fileExt = file.name.split('.').pop();
+      const filePath = `profile_photos/${Date.now()}_${Math.random().toString(36).substring(2)}.${fileExt}`;
+
+      // Use a separate API route to upload (for security)
+      const uploadRes = await fetch("/api/uploadProfilePhoto", {
+        method: "POST",
+        body: (() => {
+          const fd = new FormData();
+          fd.append("file", file);
+          fd.append("path", filePath);
+          return fd;
+        })(),
+      });
+      const uploadData = await uploadRes.json();
+      if (uploadData.url) {
+        profilePhotoUrl = uploadData.url;
+      }
+    } else if (typeof formData.profile_photo === "string") {
+      profilePhotoUrl = formData.profile_photo;
+    }
+
     try {
+      const submitData = {
+        ...formData,
+        profile_photo: profilePhotoUrl,
+        expertise: userRole === 'technician'
+          ? (typeof formData.expertise === "string"
+              ? formData.expertise.split(',').map(e => e.trim()).filter(Boolean)
+              : formData.expertise)
+          : [],
+        userRole,
+        isLogin,
+      };
       const res = await fetch('/api/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          isLogin,
-          ...formData,
-          userRole,
-        }),
+        body: JSON.stringify(submitData),
       });
       const data = await res.json();
       if (data.error) {
         setErrors({ email: data.error });
       } else {
-        alert(isLogin ? 'Login successful!' : 'Account created! Check your email.');
-        router.push('/'); // Redirect to home page
+        // Inside handleSubmit, after successful signup (not login)
+        if (!isLogin && !data.error) {
+          // Save registration data for callback
+          localStorage.setItem('pendingRegistration', JSON.stringify(submitData));
+          alert('Account created! Please check your email to verify your account.');
+          router.push('/auth/callback');
+        }
+        else {
+        alert( 'Login successful!');
+        router.push('/');
+        }
       }
     } catch (err) {
       setErrors({ email: 'Something went wrong. Please try again.' });
@@ -161,6 +213,73 @@ const LoginPage = () => {
                 />
                 {errors.confirmPassword && (
                   <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
+                )}
+                {!isLogin && userRole === 'technician' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Expertise (comma separated)</label>
+                      <input
+                        type="text"
+                        value={formData.expertise}
+                        onChange={e => setFormData({ ...formData, expertise: e.target.value })}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                        placeholder="e.g. Washing Machine, Electrical"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Hourly Rate (₹)</label>
+                      <input
+                        type="number"
+                        value={formData.hourly_rate}
+                        onChange={e => setFormData({ ...formData, hourly_rate: e.target.value })}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">City</label>
+                      <input
+                        type="text"
+                        value={formData.city}
+                        onChange={e => setFormData({ ...formData, city: e.target.value })}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Service Radius (km)</label>
+                      <input
+                        type="number"
+                        value={formData.service_radius}
+                        onChange={e => setFormData({ ...formData, service_radius: e.target.value })}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">License Number</label>
+                      <input
+                        type="text"
+                        value={formData.license_number}
+                        onChange={e => setFormData({ ...formData, license_number: e.target.value })}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Insurance Info</label>
+                      <input
+                        type="text"
+                        value={formData.insurance_info}
+                        onChange={e => setFormData({ ...formData, insurance_info: e.target.value })}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Profile Photo</label>
+                      <input
+                        type="file"
+                        onChange={e => setFormData({ ...formData, profile_photo: e.target.files[0] })}
+                        className="mt-1 block bg-blue-400 w-full rounded-md border-gray-300 shadow-sm"
+                      />
+                    </div>
+                  </>
                 )}
               </div>
             )}
