@@ -118,29 +118,10 @@ export default function Callback() {
           id: user.id, // Primary key, foreign key to auth.users.id
           name: regData.name,
           email: user.email, // Use the confirmed email
-          city: regData.city || null, // Ensure 'city' exists in regData or handle if optional
-          location: regData.location || null, // Ensure 'location' exists in regData or handle
+         phone: regData.phone || null, // Optional, ensure it matches your table schema
           // Add other common fields if present in regData and your tables
         };
 
-        if (regData.userRole === 'technician') {
-          // Ensure these field names match your 'technicians' table columns
-          dataToInsert = {
-            ...dataToInsert,
-            expertise: (typeof regData.expertise === "string"
-                          ? regData.expertise.split(',').map(e => e.trim()).filter(Boolean)
-                          : Array.isArray(regData.expertise) ? regData.expertise : []), // Ensure it's an array
-            hourly_rate: regData.hourly_rate ? parseFloat(regData.hourly_rate) : null,
-            available: typeof regData.available === 'boolean' ? regData.available : (regData.available === 'true'), // Convert string 'true' to boolean
-            service_radius: regData.service_radius ? parseInt(regData.service_radius, 10) : null,
-            license_number: regData.license_number || null,
-            insurance_info: regData.insurance_info || null,
-            profile_photo: regData.profile_photo || null, // This should be the URL string from upload
-          };
-        } else if (regData.userRole === 'customer') {
-          // Add any customer-specific fields if your 'users' table needs them from regData
-          // Example: dataToInsert.address = regData.address || null;
-        }
         
         // Remove undefined properties to prevent Supabase errors for columns that don't allow null
         // Or ensure your regData provides defaults for all required table columns.

@@ -4,9 +4,9 @@ import Chatbot from "./Chatbot";
 const Hero = () => {
 
   return (
-    <div className="pt-24 bg-gradient-to-b from-blue-600 to-blue-800">
+    <div className="pt-12 bg-gradient-to-b from-blue-600 to-blue-800">
         <div className="flex flex-col w-full justify-center items-center text-center md:text-center animate-fadeInLeft">
-          <h1 className="my-4 text-5xl font-bold text-white leading-tight">Before you panic, ask our repair bot</h1>
+          <h1 className="my-4 text-4xl  font-bold text-white leading-tight">Before you panic, ask our repair bot</h1>
           <p className="leading-normal text-2xl mb-8 text-white">Your AI mechanic is always on call</p>
          
         </div>

@@ -1,13 +1,11 @@
 "use client";
 import Card from "./components/Card";
 import Search from "./components/Search";
-import { useServices } from "@/lib/ServiceContext";
-
 const ServiceSection= () => {
-  const { services, loading } = useServices();
+  var services=require('./components/services.json');
 
   return (
-    <section className="bg-white border-b py-8">
+    <section className=" bg-gradient-to-r from-cyan-200/60  border-b py-8 transition-all duration-700 ease-in-out transform">
       <div className="container mx-auto flex flex-wrap pt-4 pb-12">
         {/* Flex row for heading and search */}
         <div className="w-full flex flex-col md:flex-row items-center justify-between mb-6 mt-10">

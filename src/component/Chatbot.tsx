@@ -53,7 +53,7 @@ const Chat = () => {
 
   return (
     <div className="max-w-lg mx-auto p-4 bg-blue-100 rounded-xl shadow">
-      <h1 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+      <h1 className="lg:text-xl sm:text-sm font-bold text-gray-800 mb-4 flex items-center gap-2">
         <img src="/chatlogo3.png" alt="chatbot" className="w-10 h-10" />
         Appliance Repair Assistant
       </h1>

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Card from "./SearchCard"; // Your Card component
-import { useServices } from "@/lib/ServiceContext";
 
 
 const SearchCards = () => {
-  const { services, loading } = useServices();
+  var services=require('./services.json');
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCards, setFilteredCards] = useState(services);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -35,7 +34,7 @@ const SearchCards = () => {
       <input
         className="w-[300px] mt-2 lg:mt-0 sm:mt-2 border border-gray-300 rounded-lg p-2 text-black"
         type="text"
-        placeholder="Search"
+        placeholder="🔍 Search"
         value={searchTerm}
         onChange={handleInputChange}
       />

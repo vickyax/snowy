@@ -1,7 +1,10 @@
 import React, { useEffect, useState,useRef } from 'react';
+import { useRouter } from "next/navigation";
 import TechnicianCard from '@/component/components/TechnicianCard'; // Adjust import as needed
 import '@/app/globals.css';
+
 const TechnicianPage = () => {
+  const router = useRouter();
   const [userLocation, setUserLocation] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [allTechnicians, setAllTechnicians] = useState([]);
@@ -116,6 +119,12 @@ useEffect(() => {
           <h1 className="lg:text-3xl text-2xl font-bold text-gray-900">
             Find Certified Technicians
           </h1>
+          <button
+            onClick={() => router.push("/technicians/create-profile")}
+            className="absolute cursor-pointer right-50 mx-auto top-5  bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
+          >
+            Register as Technician
+          </button>
             <a
         href="/"
         className="absolute right-6 mx-auto top-10 -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors text-sm flex items-center"
