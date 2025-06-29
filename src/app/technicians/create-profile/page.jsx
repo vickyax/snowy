@@ -2,8 +2,7 @@
 //create-profile.jsx
 import { useState, useRef,useEffect } from "react";
 import { useRouter } from 'next/navigation';
-import Card from "../../component/components/NormalCard"; // Adjust path if needed
-import Alert from '@mui/material/Alert';
+import Card from "@/component/components/NormalCard"; // Adjust path if needed
 import supabase from '@/utils/supabaseServer'; // Adjust path if needed
 // --- START: Added for the code to be runnable ---
 // NOTE: You should replace this with a complete list of countries
