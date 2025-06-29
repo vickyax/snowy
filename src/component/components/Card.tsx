@@ -1,3 +1,4 @@
+// components/Card.tsx or components/Card.jsx
 import React from "react";
 
 interface CardProps {
@@ -7,36 +8,52 @@ interface CardProps {
   image?: string;
 }
 
-const Card: React.FC<CardProps> = ({ content1, content2,link, image }) => {
+const Card: React.FC<CardProps> = ({ content1, content2, link, image }) => {
   return (
-    <button
-    
-      className="w-full cursor-pointer lg:text-[20px] sm:text-[5px] md:w-1/3 p-6 flex flex-col flex-shrink font-arial rounded-lg border-2 transition-all duration-700 ease-in-out transform"
-
-      >
-      <a href={`/TechService/${link}`} className="no-underline hover:no-underline">
+    <div
+      className="
+        cursor-pointer
+        p-2 sm:p-4
+        flex flex-col
+        font-arial
+        rounded-lg
+        border-2
+        transition-all duration-300 ease-in-out transform
+        bg-transparent
+        hover:scale-102 
+        hover:shadow-[5px_3px_3px_0px_#2d63c2] 
+      "
+    >
+      <a href={`/TechService/${link}`} className="no-underline hover:no-underline flex-1 "> {/* flex-1 here helps the link take available space */}
         <div
-  className="bg-white hover:bg-gray-200 rounded shadow p-4 flex items-start transform transition  hover:shadow-[5px_3px_7px_0px_#2d63c2] group hover:scale-110 animate-fade-in duration-500"
->
-  <img
-    src={image}
-    className="h-32 w-32 rounded mr-4 transition-transform duration-500 ease-out scale-100 group-hover:scale-110"
-    alt=""
-  />
-  <div className="flex flex-col justify-start text-center flex-1 break-words">
-    <div className="font-bold  text-gray-800  animate-fade-in-delay-400">
-      {content1} 
-      
-    </div>
-    <p className="text-gray-800 text-base mt-2  animate-fade-in-delay-600">
-      {content2}
-    </p>
-    
-  </div>
-</div>
-
+          className="
+            flex items-start
+            hover:bg-gray-200 rounded 
+            group animate-fade-in duration-300
+          "
+        >
+          <img
+            src={image}
+            className="
+              w-20 h-20 sm:w-20 sm:h-20 lg:h-32 lg:w-32 md:w-32 
+              rounded 
+              transition-transform duration-500 ease-out
+              scale-100 group-hover:scale-110
+              
+            "
+            alt=""
+          />
+          <div className="flex flex-col text-base text-[10px] sm:text-[10px] lg:text-[15px] text-gray-600 ml-2 justify-start break-words text-left"> {/* Aligned text to left, removed text-center */}
+            <span className="font-bold  animate-fade-in-delay-400"> {/* Responsive font sizes */}
+              {content1}
+            </span>
+            <span className=" mt-2 animate-fade-in-delay-600"> {/* Responsive font sizes */}
+              {content2}
+            </span>
+          </div>
+        </div>
       </a>
-    </button>
+    </div>
   );
 };
 

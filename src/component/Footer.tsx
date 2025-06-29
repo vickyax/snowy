@@ -6,8 +6,7 @@ export default function Footer() {
     <footer className="bg-white">
       <div className="container mx-auto px-8">
         <div className="w-full flex flex-col md:flex-row py-6">
-          <div className="flex-1 mb-6 text-black"></div>
-
+          <h1>About Us</h1>
           <div className="flex-1">
             <p className="uppercase text-gray-500 md:mb-6">link</p>
             <ul className="list-reset mb-6">

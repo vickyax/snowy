@@ -75,6 +75,24 @@ export async function TechnicianProfileAPI(req, res) {
         const htmlContent = `
             <h1>New Technician Application</h1>
             <p>A new candidate, <strong>${name}</strong>, has submitted their profile for review.</p>
+            <p><strong>Details:</strong></p>
+            <ul>
+                <li><strong>Job Role:</strong> ${job_role}</li>
+                <li><strong>Expertise:</strong> ${expertise}</li>
+                <li><strong>Age:</strong> ${age}</li>
+                <li><strong>Experience:</strong> ${experience} years</li>
+                <li><strong>Service Radius:</strong> ${service_radius} km</li>
+                <li><strong>Date of Birth:</strong> ${dob}</li>
+                <li><strong>Country:</strong> ${country}</li>
+                <li><strong>State:</strong> ${state}</li>
+                <li><strong>City:</strong> ${city}</li>
+                <li><strong>Pincode:</strong> ${pincode}</li>
+                <li><strong>Phone:</strong> ${phone}</li>
+                <li><strong>Email:</strong> ${email}</li>
+            </ul>
+            <p>Please review the application at your earliest convenience.</p>
+            <p>Thank you!</p>
+            
             ...
         `;
 

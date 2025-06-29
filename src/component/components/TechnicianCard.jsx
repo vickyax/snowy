@@ -52,8 +52,8 @@ const TechnicianCard = ({ tech }) => {
             </p>
           </div>
 
-          <div className="mt-4 flex space-x-4">
-            <button className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+          <div className="mt-4 flex space-x-2">
+            <button className="flex-1 bg-blue-600  text-white rounded-md hover:bg-blue-700">
               Book Now
             </button>
             <button className="px-4 py-2 text-gray-600 hover:text-gray-800">

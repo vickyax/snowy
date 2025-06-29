@@ -1,15 +1,10 @@
+"use client";
 //create-profile.jsx
-
-import { useState, useRef } from "react";
-import { useRouter } from "next/router";
+import { useState, useRef,useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import Card from "../../component/components/NormalCard"; // Adjust path if needed
-import "@/app/globals.css";
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_DATABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import Alert from '@mui/material/Alert';
+import supabase from '@/utils/supabaseServer'; // Adjust path if needed
 // --- START: Added for the code to be runnable ---
 // NOTE: You should replace this with a complete list of countries
 const countryList = [
@@ -95,7 +90,7 @@ export default function CreateTechnicianProfile() {
         q => !(q.key === "service_radius" && answers.job_role === "permanent")
     );
 
-    const [citySuggestions, setCitySuggestions] = useState([]);
+   
     const [step, setStep] = useState(0);
     const debounceTimeout = useRef(null);
     const [userCity, setUserCity] = useState('');
@@ -105,28 +100,35 @@ export default function CreateTechnicianProfile() {
 
     const isFinalStep = step === filteredQuestions.length;
 
-    const handleCityChange = async (e) => {
-        const input = e.target.value;
-        setUserCity(input);
-        if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
-        if (input.length < 2) {
-            setCitySuggestions([]);
-            return;
-        }
+// ...existing code...
+const [stateSuggestions, setStateSuggestions] = useState([]);
+const [citySuggestions, setCitySuggestions] = useState([]);
 
-        debounceTimeout.current = setTimeout(async () => {
-            try {
-                // Assuming your API route is setup correctly
-                const res = await fetch(`/api/city/autocomplete?q=${input}`);
-                const data = await res.json();
-                setCitySuggestions(data.suggestions || []);
-            } catch (err) {
-                console.error('Autocomplete error:', err);
-                setCitySuggestions([]);
-            }
-        }, 300);
-    };
+const handleStateChange = async (e) => {
+  const input = e.target.value;
+  setAnswers(a => ({ ...a, state: input }));
+  if (input.length < 1) {
+    setStateSuggestions([]);
+    return;
+  }
+  const res = await fetch(`/api/location/state-autocomplete?q=${input}`);
+  const data = await res.json();
+  setStateSuggestions(data.suggestions || []);
+};
 
+const handleCityChange = async (e) => {
+  const input = e.target.value;
+  setAnswers(a => ({ ...a, city: input }));
+  if (input.length < 1 || !answers.state) {
+    setCitySuggestions([]);
+    return;
+  }
+  const res = await fetch(`/api/location/autocomplete?q=${input}&state=${answers.state}`);
+  const data = await res.json();
+  setCitySuggestions(data.suggestions || []);
+};
+// ...existing code...
+    
     const handleSelect = (key, value, multi) => {
         setAnswers((prev) => {
             if (multi) {
@@ -149,14 +151,7 @@ export default function CreateTechnicianProfile() {
         setSubmitting(true);
         setError("");
             const { data: { user }, error: userError } = await supabase.auth.getUser();
-        console.log("Submitting the following data:", {
-            id: user.id,
-            ...answers,
-            phone: answers.phone_country_code + answers.phone,
-            email: user.email,
-            name: user.user_metadata?.name || user.email,
-        });
-
+  
          let profilePhotoUrl = "";
 
   if (answers.profile_photo) {
@@ -192,7 +187,6 @@ export default function CreateTechnicianProfile() {
       return;
 
     }
-
 
     const res = await fetch("/api/technician-profile", {
 
@@ -259,6 +253,32 @@ export default function CreateTechnicianProfile() {
 
     // **CHANGE 2: Moved the question object (`q`) definition inside the component's return logic**
     const q = filteredQuestions[step];
+    // Remove the direct call to supabase.auth.getUser() here; useEffect or async logic should be used for auth in React.
+    // For now, let's assume user info is handled via state or props, or you can use a loading state.
+    // Remove the destructuring and use a placeholder for demonstration.
+    // Example: const user = true; // Replace with actual user logic
+
+    // For demonstration, let's use a placeholder for user
+    // You should replace this with your actual authentication logic
+    const [user, setUser] = useState(null);
+
+    // Simulate fetching user on mount (replace with your actual logic)
+    useEffect(() => {
+        async function fetchUser() {
+            const { data: { user } } = await supabase.auth.getUser();
+            setUser(user);
+        }
+        fetchUser();
+    }, []);
+
+    
+    if (!user) {
+//         <Alert severity="success" className="fixed top-30 right-50 z-50">
+//     Successfully logged out.
+//   </Alert>
+        router.push('/login');
+        return ;
+    }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 text-black">
@@ -304,26 +324,59 @@ export default function CreateTechnicianProfile() {
                                 </select>
                             </div>
                             {/* State */}
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">State</label>
-                                <input
-                                    type="text"
-                                    value={answers.state}
-                                    onChange={e => setAnswers(a => ({ ...a, state: e.target.value }))}
-                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                                />
-                            </div>
-                            {/* City */}
                             <div className="relative">
-                                <label className="block text-sm font-medium text-gray-700">City</label>
-                                <input
-                                    type="text"
-                                    value={answers.city}
-                                    onChange={e => setAnswers(a => ({ ...a, city: e.target.value }))}
-                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                                />
-                                
-                            </div>
+                                    <label className="block text-sm font-medium text-gray-700">State</label>
+                                    <input
+                                        type="text"
+                                        value={answers.state}
+                                        onChange={handleStateChange}
+                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                        autoComplete="off"
+                                    />
+                                    {stateSuggestions.length > 0 && (
+                                        <ul className="absolute z-10 bg-white border border-gray-300 mt-1 w-full rounded shadow-md max-h-40 overflow-auto">
+                                        {stateSuggestions.map((suggestion, idx) => (
+                                            <li
+                                            key={idx}
+                                            className="px-3 py-2 hover:bg-blue-100 cursor-pointer"
+                                            onClick={() => {
+                                                setAnswers(a => ({ ...a, state: suggestion, city: "" }));
+                                                setStateSuggestions([]);
+                                            }}
+                                            >
+                                            {suggestion}
+                                            </li>
+                                        ))}
+                                        </ul>
+                                    )}
+                                    </div>
+                                    {/* City */}
+                                    <div className="relative">
+                                    <label className="block text-sm font-medium text-gray-700">City</label>
+                                    <input
+                                        type="text"
+                                        value={answers.city}
+                                        onChange={handleCityChange}
+                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                        autoComplete="off"
+                                    />
+                                    {citySuggestions.length > 0 && (
+                                        <ul className="absolute z-10 bg-white border border-gray-300 mt-1 w-full rounded shadow-md max-h-40 overflow-auto">
+                                        {citySuggestions.map((suggestion, idx) => (
+                                            <li
+                                            key={idx}
+                                            className="px-3 py-2 hover:bg-blue-100 cursor-pointer"
+                                            onClick={() => {
+                                                setAnswers(a => ({ ...a, city: suggestion }));
+                                                setCitySuggestions([]);
+                                            }}
+                                            >
+                                            {suggestion}
+                                            </li>
+                                        ))}
+                                        </ul>
+                                    )}
+                                    </div>
                             {/* Pincode */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">Pincode (optional)</label>

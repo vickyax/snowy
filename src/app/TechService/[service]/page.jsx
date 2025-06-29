@@ -1,19 +1,35 @@
+"use client";
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
+import { useRouter } from 'next/navigation';
 import TechnicianCard from '@/component/components/TechnicianCard';
 import ServiceProcess from '@/component/components/ServiceProcess';
-import '@/app/globals.css';
-export default function ServicePage() {
+import Navbar from '@/component/Nav';
+export default function ServicePage({params}) {
   const router = useRouter();
-  const { service } = router.query;
-
+  const { service } = React.use(params);
+  const normalizedService = decodeURIComponent(service || '').replace(/-/g, ' '); 
   const [userLocation, setUserLocation] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [sortBy, setSortBy] = useState('rating');
   const [technicians, setTechnicians] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const normalizedService = service?.replace(/-/g, ' ');
+  const [locationSuggestions, setLocationSuggestions] = useState([]);
+const [showSuggestions, setShowSuggestions] = useState(false);
+const handleLocationChange = async (e) => {
+  const input = e.target.value;
+  setUserLocation(input);
+  if (input.length < 2) {
+    setLocationSuggestions([]);
+    setShowSuggestions(false);
+    return;
+  }
+  const res = await fetch(`/api/location/autocomplete?q=${input}`);
+  const data = await res.json();
+  setLocationSuggestions(data.suggestions || []);
+  setShowSuggestions(true);
+};
+ 
 
   const serviceDetails = {
     'AC Repair': {
@@ -91,8 +107,9 @@ export default function ServicePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar/>
       {/* Header */}
-      <header className="bg-white text-black shadow-sm">
+      <header className="bg-white mt-20 text-black shadow-sm">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4">
             <div className="items-center mr-6">
@@ -101,29 +118,43 @@ export default function ServicePage() {
               </h1>
               <p className="mt-2 text-gray-600">{serviceDetails[normalizedService]?.priceRange}</p>
             </div>
-            <div className="w-64 mx-auto"> 
+            <div className="w-64 mx-auto relative">
               <label className="block text-sm font-medium text-gray-700 ">Your Location</label>
               <input
                 type="text"
                 value={userLocation}
-                onChange={(e) => setUserLocation(e.target.value)}
+                onChange={handleLocationChange}
+                onFocus={() => setShowSuggestions(locationSuggestions.length > 0)}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
                 placeholder="Enter location"
+                autoComplete="off"
               />
+              {showSuggestions && locationSuggestions.length > 0 && (
+                <ul className="absolute z-10 bg-white border border-gray-300 mt-1 w-full rounded shadow-md max-h-40 overflow-auto">
+                  {locationSuggestions.map((suggestion, idx) => (
+                    <li
+                      key={idx}
+                      className="px-3 py-2 hover:bg-blue-100 cursor-pointer"
+                      onClick={() => {
+                        setUserLocation(suggestion);
+                        setLocationSuggestions([]);
+                        setShowSuggestions(false);
+                      }}
+                    >
+                      {suggestion}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-            <a
-        href="/"
-        className="right-6 mt-2 -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors text-sm flex items-center"
-      >
-        <span className="mr-2">🏠</span> Home
-      </a>
+           
           </div>
           
         </div>
       </header>
 
       {/* Main */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mb-20 lg:mb-5 px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column */}
           <div className="lg:col-span-2 text-black">
@@ -223,7 +254,7 @@ export default function ServicePage() {
             <div className="mt-8 bg-white rounded-lg shadow-sm p-6 text-center">
               <h3 className="font-medium mb-2">Earn up to ₹50k/month</h3>
               <p className="text-sm text-gray-600 mb-4">Join our network of professional technicians</p>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+              <button onClick={() => router.push("/technicians/create-profile")} className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 Register as Technician
               </button>
             </div>

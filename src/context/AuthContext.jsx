@@ -1,18 +1,15 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_DATABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_KEY
-);
-
+import { useRouter } from "next/navigation";
+import supabase from '@/utils/supabaseServer'; // Adjust the import path as necessary
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null); // Supabase user object
   const [profile, setProfile] = useState(null); // User row from users table
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState("dashboard"); // default page
+  const router = useRouter();
 
   useEffect(() => {
     // Check session on mount
@@ -29,8 +26,25 @@ export function AuthProvider({ children }) {
           .eq("id", user.id)
           .single();
         setProfile(userProfile);
+
+        // Check if user is a technician
+        const { data: tech } = await supabase
+          .from("technicians")
+          .select("id")
+          .eq("id", user.id)
+          .single();
+        const { data: verified } = await supabase
+          .from("technicians")
+          .select("id")
+          .eq("verification_status","TRUE")
+          .single();
+        
+        if (tech && tech.id && verified) {
+          router.push("/technicians-dashboard");
+        }
       } else {
         setProfile(null);
+        
       }
       setLoading(false);
     };
@@ -45,10 +59,10 @@ export function AuthProvider({ children }) {
     return () => {
       listener?.subscription.unsubscribe();
     };
-  }, []);
+  }, [router]);
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading }}>
+    <AuthContext.Provider value={{ user, profile, loading, currentPage, setCurrentPage }}>
       {children}
     </AuthContext.Provider>
   );

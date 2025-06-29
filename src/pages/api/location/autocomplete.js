@@ -1,28 +1,24 @@
-export default async function handler(req, res) {
+import path from "path";
+import fs from "fs";
+
+export default function handler(req, res) {
   const { q } = req.query;
-  const apiKey = process.env.LOCATIONIQ_API_KEY;
-
   if (!q) {
-    return res.status(400).json({ suggestions: [] });
+    return res.status(200).json({ suggestions: [] });
   }
 
-  try {
-    const response = await fetch(
-      `https://us1.locationiq.com/v1/autocomplete?key=${apiKey}&q=${encodeURIComponent(q)}&limit=5&dedupe=1&normalizecity=1&tag=place:city`
-    );
+  // Read and parse the JSON file
+  const filePath = path.join(process.cwd(), "indiancity.json");
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const cityData = JSON.parse(raw);
 
-    const data = await response.json();
+  // Flatten all cities into a single array
+  const allCities = Object.values(cityData).flat();
 
-    if (!Array.isArray(data)) {
-      console.error("Unexpected response from LocationIQ:", data);
-      return res.status(500).json({ suggestions: [] });
-    }
+  // Filter cities by query (case-insensitive, startsWith or includes)
+  const suggestions = allCities
+    .filter(city => city.toLowerCase().includes(q.toLowerCase()))
+    .slice(0, 8); // limit results
 
-    const cities = data.map(place => place.display_name);
-    res.status(200).json({ suggestions: cities });
-
-  } catch (error) {
-    console.error("Autocomplete error:", error);
-    res.status(500).json({ suggestions: [] });
-  }
+  res.status(200).json({ suggestions });
 }

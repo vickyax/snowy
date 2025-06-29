@@ -7,7 +7,7 @@ import React from 'react';
 const ProductPage = () => {
   return (
     <>
-    <h1>Hello dear, This is the product page.</h1>
+    <h1>This is the product page.</h1>
     </>
   );
 };
