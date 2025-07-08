@@ -16,6 +16,10 @@ import Timeline from '@mui/icons-material/Timeline';
 import Cart from '@mui/icons-material/ShoppingCartCheckout';
 import HailIcon from '@mui/icons-material/Hail';
 import LoginIcon from '@mui/icons-material/Login';
+import Cart2 from '@mui/icons-material/ShoppingCart';
+import Search from "@/component/components/Search"
+import PlaceIcon from '@mui/icons-material/Place';
+import Drop from '@mui/icons-material/ArrowDropDown';
 const Navbar = () => {
   const { user, loading } = useAuth();
   const router = useRouter();
@@ -148,8 +152,8 @@ useEffect(() => {
   return (
     <nav
       id="header"
-      className={`fixed w-full z-30 top-0 text-white ${
-        navFloat ? "bg-blue-300/60" : "bg-blue-300 bg-opacity-20 shadow-md"
+      className={`fixed w-screen z-30 top-0 text-white ${
+        navFloat ? "bg-blue-800/80" : "bg-blue-800/95 shadow-md"
       } transition duration-300 ease-in-out`}
     >
       {showSuccess && (
@@ -158,45 +162,64 @@ useEffect(() => {
         </Alert>
       )}
 
-      <div className="w-full container mx-auto flex items-center justify-between py-5">
+      <div className="w-full container mx-auto flex items-center justify-between py-2 lg:py-5">
         {/* Logo */}
-        <div className="pl-4 flex items-center text-blue-400">
-          <button
-            className={`no-underline font-bold text-[18px] md:text-2xl lg:text-3xl cursor-pointer flex items-center space-x-1 ${
-              navFloat
-                ? "bg-gradient-to-r from-indigo-800 to-cyan-800 bg-clip-text text-transparent"
-                : "bg-gradient-to-r from-violet-800 via-violet-600 to-cyan-600 bg-clip-text text-transparent"
-            }`}
-            onClick={() => router.push("/")}
-          >
-            <Image
-              src={snowfeed}
-              alt="Snowfeed Icon"
-              width={45}
-              height={45}
-              style={{ borderRadius: "50%", position: "relative", zIndex: 1 }}
-            />
-            <span
-              className={`transition-all duration-700 ease-in-out ${
-                showText ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
-              }`}
-            >
-              Services
-            </span>
-          </button>
-          <span className="text-gray-600 lg:ml-20 sm:ml-3 font-bold lg:text-[18px] sm:text-[10px] flex items-center">
-            <CallIcon className="!w-5 !h-5 lg:mr-2 sm:mr-0"/>+91 9790189488
-          </span>
-        </div>
+       
+<div className="pl-4 flex mr-1  flex-col lg:flex-row items-start text-blue-400">
+  <button
+    className={`no-underline  font-bold text-[18px] md:text-2xl lg:text-2xl cursor-pointer flex items-center space-x-1 ${
+      navFloat
+        ? "hidden"
+        : "text-white bg-clip-text "
+    }`}
+    onClick={() => router.push("/")}
+  >
+    <Image
+      src={snowfeed}
+      alt="Snowfeed Icon"
+      width={45}
+      height={45}
+      style={{ borderRadius: "50%", position: "relative", zIndex: 1 }}
+    />
+    <span
+      className={`transition-all duration-700 ease-in-out ${
+        showText ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
+      }`}
+    >
+      Services
+    </span>
+  </button>
+  <div className="ml-0 lg:ml-5 bg-transparent flex flex-row items-center space-x-2">
+    <button className={`flex items-center ${!navFloat ? "hidden" : "relative"} text-white hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
+      <Cart2 sx={{ fontSize: 30 }}/>
+    </button>
+    <Search navFloat={navFloat}/>
+  </div>
+  <div className={`${navFloat ? "hidden" : "block"}`}>
+  <span className="text-white font-bold lg:text-[18px] sm:text-[8px] flex items-center mt-1">
+    <CallIcon className="!w-4 !h-4 lg:mr-2 sm:mr-0" />
+    +91 9790189488
+  </span>
+
+<button className="w-screen mt-2 cursor-pointer bg-blue-800 text-white py-2  text-start font-semibold text-sm shadow-sm rounded-sm overflow-x-hidden">
+  <PlaceIcon sx={{ fontSize: 20 }}/>
+  To 123 Main Street, Chennai, 600001
+  <Drop/>
+</button>
+  </div>
+</div>
 
         {/* Hamburger Menu (visible on small screens) */}
         <div className="block lg:hidden pr-4" ref={hamburgerEl}>
+          <button className={`flex  items-center top-[20px] right-[48px] ${navFloat?"hidden":"absolute"} text-white cursor-pointer hover:text-gray-900 focus:outline-none transition duration-300`}>
+            <Cart2 sx={{ fontSize: 30 }}/>
+          </button>
           <button
             onClick={toggleMenu}
-            className="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none transition duration-300"
+            className={`flex items-center top-[20px] right-3 absolute text-white hover:text-gray-900 focus:outline-none transition duration-300`}
             aria-label="Toggle menu"
           >
-            <svg className="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <svg className="fill-current h-7 w-7" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <title>Menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>

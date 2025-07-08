@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Card from "./SearchCard"; // Your Card component
+import SearchIcon from '@mui/icons-material/Search';
 
-
-const SearchCards = () => {
+const SearchCards = ({ navFloat }) => {
   var services=require('./services.json');
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCards, setFilteredCards] = useState(services);
@@ -30,14 +30,17 @@ const SearchCards = () => {
   };
 
   return (
-    <div className="search-container relative mt-12 lg:mt-8 md:mt-15 sm:mt-16 ">
-      <input
-        className="w-[300px] mt-2 lg:mt-0 sm:mt-2 border border-gray-300 rounded-lg p-2 text-black"
-        type="text"
-        placeholder="🔍 Search"
-        value={searchTerm}
-        onChange={handleInputChange}
-      />
+    <div className="search-container bg-transparent block">
+      <div className={ `items-center ${navFloat?"w-[260px]":"w-[320px]"} lg:w-[400px] mt-2 lg:mt-0 sm:mt-2 border bg-white/90 rounded-lg p-2`}>
+        <SearchIcon className="text-gray-500 mr-2" />
+        <input
+          className="flex-1 bg-transparent outline-none text-black"
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+      </div>
       {showSuggestions && (
         <div className="suggestions absolute bg-white border border-gray-300 rounded-lg shadow-md mt-1 z-10 w-[300px]">
           {filteredCards.map((card, index) => (

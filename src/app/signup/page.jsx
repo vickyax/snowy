@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
 import { form } from 'framer-motion/client';
 
@@ -19,7 +19,9 @@ const SignupPage = () => {
     confirmPassword: '',
   });
   const [errors, setErrors] = useState({});
-  const router = useRouter();
+   const router = useRouter();
+  // const searchParams = useSearchParams();
+  // const redirect = searchParams.get('redirect') || '/';
 
   const handleGoogleSignUp = async () => {
     localStorage.setItem('pendingGoogleRole', formData.userRole);
