@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = ({ content1, content2, link, image }) => {
             "
             alt=""
           />
-          <div className="flex flex-col text-base text-[10px] sm:text-[10px] lg:text-[15px] text-gray-600 ml-2 justify-start break-words text-left"> {/* Aligned text to left, removed text-center */}
+          <div className="flex flex-col text-base text-[13px]  lg:text-[20px] text-gray-600 ml-2 justify-start break-words text-left"> {/* Aligned text to left, removed text-center */}
             <span className="font-bold  animate-fade-in-delay-400"> {/* Responsive font sizes */}
               {content1}
             </span>

@@ -33,14 +33,12 @@ export default function ServicesSection() {
         </div>
 
         <div className="flex flex-wrap flex-col-reverse sm:flex-row items-center">
-          <div className="w-full sm:w-1/2 p-6 mt-6">
+          <div className="w-full sm:w-1/2 p-3 mt-3">
             <img className="w-full object-cover rounded-lg shadow" src="/pic1.jpg" alt="Service process" />
           </div>
-          <div className="w-full sm:w-1/2 p-3 mt-6 flex flex-col justify-center">
-            <h3 className="text-3xl text-gray-800 font-bold leading-tight mb-3 text-center sm:text-left">
-              Explore Our Services
-            </h3>
-            <p className="text-gray-600  text-center sm:text-left text-lg">
+          <div className="w-full sm:w-1/2 p-3 mt-3 flex flex-col justify-center">
+            
+            <p className="text-gray-800 font-bold  text-center sm:text-left text-lg">
               All our technicians are certified and background-checked.<br /><br />
 
             </p>

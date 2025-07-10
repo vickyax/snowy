@@ -5,8 +5,8 @@ export default function RegisterTechnician() {
   return (
     <>
    
-      <section className="bg-gradient-to-r from-cyan-200/60 border-b py-4">
-        <div className="container max-w-5xl mx-auto m-8">
+      <section className="bg-gradient-to-r from-cyan-200/60 border-b py-2">
+        <div className="container max-w-5xl mx-auto m-1">
           <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
             Join Our Network of Trusted Technicians
           </h1>

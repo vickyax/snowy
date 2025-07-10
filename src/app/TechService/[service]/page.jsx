@@ -106,10 +106,10 @@ const handleLocationChange = async (e) => {
   }, [userLocation, sortBy, normalizedService]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 ">
       <Navbar/>
       {/* Header */}
-      <header className="bg-white mt-20 text-black shadow-sm">
+      <header className="bg-white mt-[200px] text-black shadow-sm">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4">
             <div className="items-center mr-6">

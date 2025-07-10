@@ -153,7 +153,7 @@ useEffect(() => {
     <nav
       id="header"
       className={`fixed w-screen z-30 top-0 text-white ${
-        navFloat ? "bg-blue-800/80" : "bg-blue-800/95 shadow-md"
+        navFloat ? "bg-[#00BFFF]/80" : "bg-[#00BFFF]/40 shadow-md"
       } transition duration-300 ease-in-out`}
     >
       {showSuccess && (
@@ -169,8 +169,8 @@ useEffect(() => {
   <button
     className={`no-underline  font-bold text-[18px] md:text-2xl lg:text-2xl cursor-pointer flex items-center space-x-1 ${
       navFloat
-        ? "hidden"
-        : "text-white bg-clip-text "
+        ? "hidden "
+        : "text-blue-800 bg-clip-text "
     }`}
     onClick={() => router.push("/")}
   >
@@ -190,20 +190,20 @@ useEffect(() => {
     </span>
   </button>
   <div className="ml-0 lg:ml-5 bg-transparent flex flex-row items-center space-x-2">
-    <button className={`flex items-center ${!navFloat ? "hidden" : "relative"} text-white hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
+    <button className={`flex items-center ${!navFloat ? "hidden" : "relative"} text-black hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
       <Cart2 sx={{ fontSize: 30 }}/>
     </button>
     <Search navFloat={navFloat}/>
   </div>
   <div className={`${navFloat ? "hidden" : "block"}`}>
-  <span className="text-white font-bold lg:text-[18px] sm:text-[8px] flex items-center mt-1">
+  <span className="text-black font-bold lg:text-[18px] sm:text-[8px] flex items-center mt-1">
     <CallIcon className="!w-4 !h-4 lg:mr-2 sm:mr-0" />
     +91 9790189488
   </span>
 
-<button className="w-screen mt-2 cursor-pointer bg-blue-800 text-white py-2  text-start font-semibold text-sm shadow-sm rounded-sm overflow-x-hidden">
+<button className="w-screen mt-2 cursor-pointer bg-[#00BFFF]/30 text-black py-2  text-start font-semibold text-sm shadow-sm rounded-sm overflow-x-hidden">
   <PlaceIcon sx={{ fontSize: 20 }}/>
-  To 123 Main Street, Chennai, 600001
+  To 123 Main Street, Coimbatore, 641008
   <Drop/>
 </button>
   </div>
@@ -211,12 +211,12 @@ useEffect(() => {
 
         {/* Hamburger Menu (visible on small screens) */}
         <div className="block lg:hidden pr-4" ref={hamburgerEl}>
-          <button className={`flex  items-center top-[20px] right-[48px] ${navFloat?"hidden":"absolute"} text-white cursor-pointer hover:text-gray-900 focus:outline-none transition duration-300`}>
+          <button className={`flex  items-center top-[20px] right-[48px] ${navFloat?"hidden":"absolute"} text-black cursor-pointer hover:text-gray-900 focus:outline-none transition duration-300`}>
             <Cart2 sx={{ fontSize: 30 }}/>
           </button>
           <button
             onClick={toggleMenu}
-            className={`flex items-center top-[20px] right-3 absolute text-white hover:text-gray-900 focus:outline-none transition duration-300`}
+            className={`flex items-center top-[20px] right-3 absolute text-black hover:text-gray-900 focus:outline-none transition duration-300`}
             aria-label="Toggle menu"
           >
             <svg className="fill-current h-7 w-7" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -260,7 +260,8 @@ useEffect(() => {
               </button>
             </li>
             <li>
-              <button className="w-full bg-blue-500 text-left px-4 py-2 rounded hover:bg-blue-300 transition duration-200 text-white">
+              <button className="w-full bg-blue-500 text-left px-4 py-2 rounded hover:bg-blue-300 transition duration-200 text-white"
+              onClick={() => { router.push("/Searchpage"); toggleMenu(); }}>
                <SupportIcon className="!h-5 !w-5 mr-1"/> Services
               </button>
             </li>
@@ -307,7 +308,7 @@ useEffect(() => {
                       <button
                         onClick={() => { router.push("/my-orders"); setShowMobileProfileDropdown(false); }}
                         className="cursor-pointer bg-gray-100 w-full text-left px-4 py-2 hover:bg-gray-200 rounded-lg transition duration-300"
-                      ><Cart className="!h-5 !w-5 mr-1"/>
+                      ><Cart className="!h-5 !w-5 mr-1 "/>
                         My Orders
                       </button>
                     </li>
@@ -382,7 +383,8 @@ useEffect(() => {
               )}
             </li>
             <li className="mr-3">
-              <button className="py-2 px-4 cursor-pointer text-black hover:text-gray-800">Services</button>
+              <button className="py-2 px-4 cursor-pointer text-black hover:text-gray-800"
+              onClick={() => { router.push("/Searchpage"); toggleMenu(); }}>Services</button>
             </li>
             <li className="mr-3">
               <button className="py-2 px-4 cursor-pointer text-black hover:text-gray-800">FAQ</button>

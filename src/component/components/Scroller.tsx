@@ -6,37 +6,50 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const ScrollableCards = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const services = require('./services.json');
+  // Use a ref to hold the interval ID so it can be cleared from anywhere
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  var services = require('./services.json');
+   services=services.slice(0,8)
   const [visibleCards, setVisibleCards] = useState(new Set());
 
-  // Auto-scroll effect (no changes needed here)
-  useEffect(() => {
-    if (!containerRef.current) return;
-    const container = containerRef.current;
-    const scrollAmount = container.offsetWidth * 0.8;
-    let direction = "right";
+  // Function to start the auto-scroll behavior
+  const startAutoScroll = useCallback(() => {
+    // Prevent multiple intervals from running
+    if (intervalRef.current) clearInterval(intervalRef.current);
 
-    const interval = setInterval(() => {
-        if (!container) return;
-        if (
-            direction === "right" &&
-            container.scrollLeft + container.offsetWidth >= container.scrollWidth - 10
-        ) {
-            direction = "left";
-        } else if (direction === "left" && container.scrollLeft <= 0) {
-            direction = "right";
-        }
-        if (direction === "right") {
-            container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        } else {
-            container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-        }
+    intervalRef.current = setInterval(() => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      // A more reliable way to check if scrolled to the end
+      const atEnd = Math.ceil(container.scrollLeft + container.offsetWidth) >= container.scrollWidth;
+
+      if (atEnd) {
+        // For a seamless loop, scroll back to the start
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        // Continue scrolling to the right
+        container.scrollBy({ left: container.offsetWidth * 0.8, behavior: "smooth" });
+      }
     }, 3000);
+  }, []);
 
-    return () => clearInterval(interval);
-  }, [services]);
+  // Function to stop the auto-scroll
+  const stopAutoScroll = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
 
-  // Intersection Observer (no changes needed here)
+  // Start auto-scrolling when the component mounts
+  useEffect(() => {
+    startAutoScroll();
+    // Clear the interval when the component unmounts
+    return () => stopAutoScroll();
+  }, [startAutoScroll]);
+
+  // Intersection Observer for card animations (no changes needed here)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -71,39 +84,33 @@ const ScrollableCards = () => {
     };
   }, [services]);
 
+  // The manual scroll function, now with auto-scroll interruption
   const scroll = useCallback((direction: 'left' | 'right') => {
+    // **KEY FIX**: Stop auto-scrolling when the user clicks a button
+    stopAutoScroll();
+
     if (containerRef.current) {
       const scrollAmount = containerRef.current.offsetWidth * 0.8;
-      if (direction === 'left') {
-        containerRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      } else {
-        containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
+      const newScrollLeft = direction === 'left'
+        ? containerRef.current.scrollLeft - scrollAmount
+        : containerRef.current.scrollLeft + scrollAmount;
+      
+      containerRef.current.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
     }
   }, []);
 
   return (
-    <>
-    <div className="relative w-full max-w-full bg-[#00BFFF]/30  py-1">
+    <div className="relative  w-full max-w-full bg-gradient-to-r from-cyan-200/60  py-1">
       {/* Scroll Arrows */}
-      <button
-        onClick={() => scroll('left')}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-blue-300/20 p-3  text-white rounded-full shadow-sm z-10  focus:outline-none focus:ring-2 focus:ring-amber-500"
-        aria-label="Scroll left"
-      >
-        <FaChevronLeft size={20} />
-      </button>
-      <button
-        onClick={() => scroll('right')}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-300/20  text-white p-3 rounded-full shadow-sm z-10  focus:outline-none focus:ring-2 focus:ring-amber-500"
-        aria-label="Scroll right"
-      >
-        <FaChevronRight size={20} />
-      </button>
+      
 
       <div
         ref={containerRef}
         className="flex space-x-3 mt-2 sm:space-x-5 overflow-x-auto snap-x snap-mandatory hide-scrollbar w-full"
+        // Pause auto-scroll on mouse hover for better UX
+        onMouseEnter={stopAutoScroll}
+        // Resume auto-scroll when mouse leaves
+        onMouseLeave={startAutoScroll}
         style={{
           scrollBehavior: "smooth",
           whiteSpace: "nowrap",
@@ -126,19 +133,19 @@ const ScrollableCards = () => {
           </div>
         ))}
       </div>
-      {/* Optional: Add a simple scroll indicator */}
-      <div className="flex justify-center mt-4">
+      
+      {/* Scroll indicator */}
+      {/* <div className="flex justify-center mt-4">
         {services.map((_: any, idx: number) => (
           <span
             key={idx}
             className={`h-2 w-2 rounded-full mx-1 ${
-              visibleCards.size > 0 ? 'bg-blue-500' : 'bg-blue-300'
+              visibleCards.has(String(idx)) ? 'bg-blue-500' : 'bg-blue-300'
             }`}
           ></span>
         ))}
-      </div>
+      </div> */}
     </div>
-    </>
   );
 };
 

@@ -4,14 +4,17 @@ import Nav from "./Nav";
 import Hero from "./Hero";
 import Feature2 from "./Feature2";
 import Features from "./Features";
-import Cards from "./Cards";
+import HomeAppliances from "./categories/HomeAppliances";
 import Counter from './ratingcount';
+import Installation from "./categories/Installation";
+import Electronics from "./categories/Electronics";
 import CallToAction from "./CallToAction";
 import Footer from "./Footer";
 import Most from './Mostordered';
 import Scroller from "./components/Scroller";
 import { useState, useRef, useEffect } from "react";
 import Chat from "../component/Chatbot";
+import Small from "./Small";
 const App: React.FC = () => {
 
    const [isChatOpen, setIsChatOpen] = useState(false);
@@ -41,12 +44,15 @@ const App: React.FC = () => {
 
   return (
     <div
-      className="w-full leading-normal tracking-normal bg-white gradient"
+      className="w-full leading-normal tracking-normal bg-gradient-to-r from-cyan-200/60  p-2"
       style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
     >
       <Nav />
-      <Cards />
+      <Small />
       <Scroller />
+      <HomeAppliances />
+      <Installation />
+      <Electronics />
       <Counter />
       <Most/>
       {/* <Hero /> */}

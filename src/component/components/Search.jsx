@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import Card from "./SearchCard"; // Your Card component
+import { useRouter } from "next/navigation";
+import Card from "./SearchCard";
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchCards = ({ navFloat }) => {
-  var services=require('./services.json');
+  var services = require('./services.json');
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCards, setFilteredCards] = useState(services);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const router = useRouter();
 
   const filterCards = (term) => {
     const filtered = services.filter(
@@ -27,6 +29,13 @@ const SearchCards = ({ navFloat }) => {
   const selectCard = (card) => {
     setSearchTerm(card.content1);
     setShowSuggestions(false);
+    router.push(`/Searchpage?search=${encodeURIComponent(card.content1)}`);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      router.push(`/Searchpage?search=${encodeURIComponent(searchTerm)}`);
+    }
   };
 
   return (
@@ -39,6 +48,7 @@ const SearchCards = ({ navFloat }) => {
           placeholder="Search"
           value={searchTerm}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
       </div>
       {showSuggestions && (
@@ -53,6 +63,7 @@ const SearchCards = ({ navFloat }) => {
                 if (e.key === "Enter" || e.key === " ") selectCard(card);
               }}
               aria-label={`Select ${card.content1}`}
+              tabIndex={0}
             >
               <Card image={card.image} content1={card.content1} content2={card.content2} link={card.link} />
             </div>
