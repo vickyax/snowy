@@ -121,8 +121,15 @@ const Sidebar = ({ categories, selectedCategories, onCategoryChange, isOpen, set
 
 // --- Main App Component ---
 export default function App() {
-      const searchParams = useSearchParams();
-  const initialSearch = searchParams.get('search') || '';
+        let searchParams;
+  let initialSearch = '';
+  try {
+    searchParams = useSearchParams();
+    initialSearch = searchParams.get('search') || '';
+  } catch (e) {
+    // If not in a Suspense boundary, fallback to default redirect
+    initialSearch = '';
+  }
   const [searchTerm, setSearchTerm] = React.useState(initialSearch);
   const [selectedCategories, setSelectedCategories] = React.useState([]);
   const [isFilterOpen, setIsFilterOpen] = React.useState(false);

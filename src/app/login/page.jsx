@@ -41,8 +41,18 @@ const LoginPage = () => {
 
   // Next.js router and search params for redirection
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirect = searchParams.get('redirect') || '/';
+  // Wrap useSearchParams in a Suspense boundary as recommended by Next.js
+  // See: https://nextjs.org/docs/messages/missing-suspense-with-use-search-params
+  // This is a workaround for client components using useSearchParams.
+  let searchParams;
+  let redirect = '/';
+  try {
+    searchParams = useSearchParams();
+    redirect = searchParams.get('redirect') || '/';
+  } catch (e) {
+    // If not in a Suspense boundary, fallback to default redirect
+    redirect = '/';
+  }
 
   const clearMessages = () => {
       setError('');
