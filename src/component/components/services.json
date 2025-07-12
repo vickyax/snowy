@@ -16,10 +16,10 @@
     "image": "wifi.png"
   },
   {
-    "content1": "Plumbing Installation, Repair",
-    "content2": "piping installation, maintenance, replacement",
+    "content1": "Plumbing Installation, Repair - Major",
+    "content2": "Piping installation, maintenance, replacement",
     "link": "Plumbing",
-    "category":["handy","install"],
+    "category":"install",
     "id": "5a591d83-8fab-4fc6-ad93-359789472ef1",
     "image": "plumbinstall.jpeg"
   },
@@ -140,5 +140,150 @@
     "category":"install",
     "id": "f266e7ae-8528a4cf",
     "image": "ventinstall.jpeg"
-  }
+  },
+   {
+    "content1": "Plumbing Services - Minor",
+    "content2": "Piping installation, maintenance, replacement",
+    "link": "Plumbing",
+    "category":"handy",
+    "id": "5a591d83-wda2ef1",
+    "image": "plumbminor.jpeg"
+  },
+   {
+    "content1": "Drywall repair and maintenance",
+    "content2": "Piping installation, maintenance, replacement",
+    "link": "Plumbing",
+    "category":"handy",
+    "id": "589472ef1",
+    "image": "drywall.jpeg"
+  },
+   {
+    "content1": "Minor electrical",
+    "content2": "Piping installation, maintenance, replacement",
+    "link": "Plumbing",
+    "category":"handy",
+    "id": "5ef1",
+    "image": "elecminor.jpeg"
+  },
+ 
+   {
+    "content1": "Carpentry",
+    "content2": "Piping installation, maintenance, replacement",
+    "link": "Plumbing",
+    "category":"handy",
+    "id": "5a591d83-8fa-ad93-591",
+    "image": "carpentry.jpeg"
+  },
+   {
+    "content1": "Solar Panel Installation, Services",
+    "content2": "Piping installation, maintenance, replacement",
+    "link": "Plumbing",
+    "category":"install",
+    "id": "QDq-8fa-ad93-591",
+    "image": "solar.jpeg"
+  },
+  {
+  "content1": "Operating System Installation & Upgrade",
+  "content2": "Windows, Linux, macOS installation and upgrades",
+  "link": "Software",
+  "category": "software",
+  "id": "sw-001",
+  "image": "os.jpeg"
+},
+{
+  "content1": "Antivirus & Security Software Installation",
+  "content2": "Install and configure antivirus, malware removal, firewall setup",
+  "link": "Software",
+  "category": "software",
+  "id": "sw-002",
+  "image": "antivirus.jpeg"
+},
+{
+  "content1": "Driver Installation & Updates",
+  "content2": "Install and update device drivers for optimal performance",
+  "link": "Software",
+  "category": "software",
+  "id": "sw-004",
+  "image": "drivers.jpeg"
+},
+{
+  "content1": "Data Backup & Recovery",
+  "content2": "Set up backups, recover lost data, prevent data loss",
+  "link": "Software",
+  "category": "software",
+  "id": "sw-005",
+  "image": "backup.jpeg"
+},
+{
+  "content1": "Printer/Scanner Software Setup",
+  "content2": "Install and configure printer/scanner drivers and utilities",
+  "link": "Software",
+  "category": "software",
+  "id": "sw-012",
+  "image": "printerset.jpeg"
+},
+{
+  "content1": "Annual Maintenance Contract (AMC)",
+  "content2": "Scheduled checkups and servicing for home appliances and systems",
+  "link": "Maintenance",
+  "category": "maintenance",
+  "id": "mnt-001",
+  "image": "amc.jpeg"
+},
+{
+  "content1": "Appliance Maintenance",
+  "content2": "Routine servicing for AC, fridge, washing machine, and more",
+  "link": "Maintenance",
+  "category": "maintenance",
+  "id": "mnt-002",
+  "image": "apm.jpeg"
+},
+{
+  "content1": "General Home Health Check",
+  "content2": "inspection of all major systems (electrical, plumbing, structural).",
+  "link": "Maintenance",
+  "category": "maintenance",
+  "id": "mnt-007",
+  "image": "general.jpeg"
+},
+{
+  "content1": "Roof & Waterproofing Maintenance",
+  "content2": "Inspection and minor repairs for leaks or cracks.",
+  "link": "Maintenance",
+  "category": "maintenance",
+  "id": "mnt-008",
+  "image": "roof.jpeg"
+},
+{
+  "content1": "Workstation & Furniture Assembly",
+  "content2": "Desk, chair, and cubicle assembly and installation",
+  "link": "Office Services",
+  "category": "office",
+  "id": "off-001",
+  "image": "work.jpeg"
+},
+{
+  "content1": "Office Electrical Maintenance",
+  "content2": "Lighting, switchboard, socket repairs, UPS solutions",
+  "link": "Office Services",
+  "category": "office",
+  "id": "off-002",
+  "image": "office.jpeg"
+},
+{
+  "content1": "Networking & IT Setup",
+  "content2": "LAN/Wi-Fi setup, network cabling, server rack installation",
+  "link": "Office Services",
+  "category": "office",
+  "id": "off-003",
+  "image": "net.jpeg"
+},
+{
+  "content1": "Printer & Office Equipment Setup",
+  "content2": "Installation and maintenance of printers, scanners, projectors",
+  "link": "Office Services",
+  "category": "office",
+  "id": "off-004",
+  "image": "print.jpeg"
+}
 ]

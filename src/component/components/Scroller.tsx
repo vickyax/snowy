@@ -100,7 +100,7 @@ const ScrollableCards = () => {
   }, []);
 
   return (
-    <div className="relative  w-full max-w-full bg-gradient-to-r from-cyan-200/60  py-1">
+    <div className="relative  w-full max-w-full bg-gradient-to-r from-cyan-300  py-1 pt-2">
       {/* Scroll Arrows */}
       
 

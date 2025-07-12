@@ -15,6 +15,10 @@ import Scroller from "./components/Scroller";
 import { useState, useRef, useEffect } from "react";
 import Chat from "../component/Chatbot";
 import Small from "./Small";
+import Handy from "./categories/Handy";
+import Office from "./categories/Office";
+import Software from "./categories/Software";
+import Maintenance from "./categories/Maintenance";
 const App: React.FC = () => {
 
    const [isChatOpen, setIsChatOpen] = useState(false);
@@ -44,17 +48,21 @@ const App: React.FC = () => {
 
   return (
     <div
-      className="w-full leading-normal tracking-normal bg-gradient-to-r from-cyan-200/60  p-2"
+      className="w-full leading-normal tracking-normal bg-gradient-to-r from-cyan-200/60 to-cyan-400  p-2"
       style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
     >
       <Nav />
       <Small />
       <Scroller />
-      <HomeAppliances />
-      <Installation />
-      <Electronics />
-      <Counter />
+     <div id="home-appliances" className="scroll-mt-24 "><HomeAppliances /></div>
+<div id="installations" className="scroll-mt-24 border-1 border-t-amber-950"><Installation /></div>
+<div id="electronics" className="scroll-mt-24 border-1 border-t-amber-950"><Electronics /></div>
+<div id="handyman" className="scroll-mt-24 border-1 border-t-amber-950"><Handy /></div>
+<div id="software" className="scroll-mt-24 border-1 border-t-amber-950"><Software /></div>
+<div id="maintenance" className="scroll-mt-24 border-1 border-t-amber-950"><Maintenance /></div>
+<div id="office-services" className="scroll-mt-24 border-1 border-y-amber-950"><Office /></div>
       <Most/>
+      <Counter />
       {/* <Hero /> */}
       <Feature2 />
       <Features />
