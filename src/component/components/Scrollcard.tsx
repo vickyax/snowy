@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({ content1, content2, btn, link, image }) => 
     <button className="cursor-pointer w-72 sm:w-60 md:w-80 flex-shrink-0 pt-3 font-arial overflow-hidden">
       <a href={`/TechService/${link}`} className="no-underline hover:no-underline block h-full">
         <div
-          className="bg-transparent rounded shadow p-2 pt-3 flex items-start h-full min-h-[10rem] transition duration-300 hover:shadow-[0px_3px_7px_0px_#2d63c2] hover:scale-105 hover:bg-gray-200"
+          className="bg-transparent rounded shadow pt-5 flex items-start h-full min-h-[10rem] transition duration-300 hover:shadow-[0px_3px_7px_0px_#2d63c2] hover:scale-105 hover:bg-gray-200"
         >
           <img
             src={image}

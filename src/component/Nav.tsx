@@ -152,7 +152,7 @@ useEffect(() => {
   return (
     <nav
       id="header"
-      className={`fixed w-screen z-30 top-0 text-white ${
+      className={`fixed w-screen z-50 top-0 text-white ${
         navFloat ? "bg-[#00BFFF]/80" : "bg-[#00BFFF]/40 shadow-md"
       } transition duration-300 ease-in-out`}
     >
@@ -162,10 +162,10 @@ useEffect(() => {
         </Alert>
       )}
 
-      <div className="w-full container mx-auto flex items-center justify-between py-2 lg:py-5">
+      <div className="w-full  flex items-center justify-between py-2 lg:py-5">
         {/* Logo */}
        
-<div className="pl-4 flex mr-1  flex-col lg:flex-row items-start text-blue-400">
+<div className="ml-2 flex mr-1  flex-col lg:flex-row items-start text-blue-400">
   <button
     className={`no-underline  font-bold text-[18px] md:text-2xl lg:text-2xl cursor-pointer flex items-center space-x-1 ${
       navFloat

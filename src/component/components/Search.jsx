@@ -39,7 +39,7 @@ const SearchCards = ({ navFloat }) => {
   };
 
   return (
-    <div className="search-container bg-transparent block">
+    <div className="search-container bg-transparent block mt-1">
       <div className={ `items-center ${navFloat?"w-[260px]":"w-[320px]"} lg:w-[400px] mt-2 lg:mt-0 sm:mt-2 border bg-white/90 rounded-lg p-2`}>
         <SearchIcon className="text-gray-500 mr-2" />
         <input

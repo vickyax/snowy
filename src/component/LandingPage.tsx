@@ -48,7 +48,7 @@ const App: React.FC = () => {
 
   return (
     <div
-      className="w-full leading-normal tracking-normal bg-gradient-to-r from-cyan-200/60 to-cyan-400  p-2"
+      className="w-full leading-normal tracking-normal bg-gradient-to-r from-cyan-200/60 to-cyan-400"
       style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
     >
       <Nav />
@@ -63,7 +63,6 @@ const App: React.FC = () => {
 <div id="office-services" className="scroll-mt-24 border-1 border-y-amber-950"><Office /></div>
       <Most/>
       <Counter />
-      {/* <Hero /> */}
       <Feature2 />
       <Features />
       <CallToAction />
