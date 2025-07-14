@@ -3,23 +3,25 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useAuth } from '@/context/AuthContext';
-import supabase from '@/utils/supabaseServer';
-import SettingsIcon from '@mui/icons-material/Settings';
-import Alert from '@mui/material/Alert';
-import CallIcon from '@mui/icons-material/Call';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useAuth } from "@/context/AuthContext";
+import supabase from "@/utils/supabaseServer";
+import {
+  Settings as SettingsIcon,
+  Call as CallIcon,
+  AccountCircle as AccountCircleIcon,
+  SupportAgent as SupportIcon,
+  Quiz as Faq,
+  Timeline,
+  ShoppingCartCheckout as Cart,
+  Hail as HailIcon,
+  Login as LoginIcon,
+  ShoppingCart as Cart2,
+  Place as PlaceIcon,
+  ArrowDropDown as Drop,
+} from "@mui/icons-material";
+import Alert from "@mui/material/Alert";
 import snowfeed from "@/public/logojc3.jpg";
-import SupportIcon from '@mui/icons-material/SupportAgent';
-import Faq from '@mui/icons-material/Quiz';
-import Timeline from '@mui/icons-material/Timeline';
-import Cart from '@mui/icons-material/ShoppingCartCheckout';
-import HailIcon from '@mui/icons-material/Hail';
-import LoginIcon from '@mui/icons-material/Login';
-import Cart2 from '@mui/icons-material/ShoppingCart';
-import Search from "@/component/components/Search"
-import PlaceIcon from '@mui/icons-material/Place';
-import Drop from '@mui/icons-material/ArrowDropDown';
+import Search from "@/component/components/Search";
 const Navbar = () => {
   const { user, loading } = useAuth();
   const router = useRouter();
@@ -216,7 +218,7 @@ useEffect(() => {
           </button>
           <button
             onClick={toggleMenu}
-            className={`flex items-center top-[20px] right-3 absolute text-black hover:text-gray-900 focus:outline-none transition duration-300`}
+            className={`flex items-center top-[22px] right-3 absolute text-black hover:text-gray-900 focus:outline-none transition duration-300`}
             aria-label="Toggle menu"
           >
             <svg className="fill-current h-7 w-7" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

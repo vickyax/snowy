@@ -12,7 +12,7 @@ const categories = [
 ];
 
 const Small = () => (
-  <div className="w-full py-3 mt-[200px]">
+  <div className="w-full py-3 pt-[200px]">
     <div className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-transparent px-2">
       {categories.map(({ img, label,id }, idx) => (
         <a href={`#${id}`} key={label} className="no-underline">

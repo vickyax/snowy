@@ -1,0 +1,290 @@
+{
+  "TV, Smart Tv Repair": {
+    "icon": "📺",
+    "coverage": ["LCD", "LED", "OLED", "Smart TVs"],
+    "includes": ["Flickering screens", "Audio delays", "Remote control issues", "Power supply repair"],
+    "excludes": ["New TV purchase", "Screen replacement"],
+    "priceRange": "₹499 - ₹2999",
+    "warranty": "30-day service warranty"
+  },
+  "Wifi Router": {
+    "icon": "📶",
+    "coverage": ["Home routers", "Business routers", "Mesh systems"],
+    "includes": ["Slow connection", "Frequent drops", "Overheating", "Firmware updates"],
+    "excludes": ["New router purchase", "Network setup"],
+    "priceRange": "₹299 - ₹1999",
+    "warranty": "30-day service warranty"
+  },
+  "Plumbing Installation, Repair - Major": {
+    "icon": "🔧",
+    "coverage": ["Piping installation", "Maintenance", "Replacement", "Major plumbing systems"],
+    "includes": ["Leak detection", "Pipe replacement", "Fixture installation", "Drain cleaning"],
+    "excludes": ["Major structural changes", "Water heater replacement (unless specified)"],
+    "priceRange": "₹799 - ₹5999",
+    "warranty": "30-day service warranty"
+  },
+  "RO Water Purifier": {
+    "icon": "💧",
+    "coverage": ["Internal services", "External services", "Filter replacement"],
+    "includes": ["Membrane cleaning", "UV lamp replacement", "Leak repair", "Filter replacement"],
+    "excludes": ["New RO system purchase", "Major system overhaul"],
+    "priceRange": "₹499 - ₹2499",
+    "warranty": "60-day service warranty"
+  },
+  "Dishwasher": {
+    "icon": "🍽️",
+    "coverage": ["Draining problems", "Servicing", "Motor issues"],
+    "includes": ["Leak repair", "Control panel diagnostics", "Spray arm cleaning", "Filter maintenance"],
+    "excludes": ["New dishwasher purchase", "Major internal component replacement"],
+    "priceRange": "₹599 - ₹2999",
+    "warranty": "30-day service warranty"
+  },
+  "Printers / Scanners": {
+    "icon": "🖨️",
+    "coverage": ["Software management", "Repair", "Maintenance"],
+    "includes": ["Driver installation", "Paper jam removal", "Connectivity issues", "Scanner calibration"],
+    "excludes": ["New printer purchase", "Major hardware replacement (e.g., print head)"],
+    "priceRange": "₹399 - ₹1999",
+    "warranty": "30-day service warranty"
+  },
+  "CCTV Installation, Services": {
+    "icon": "📹",
+    "coverage": ["Service", "Installation", "Maintenance"],
+    "includes": ["Camera setup", "Wiring inspection", "DVR/NVR configuration", "Lens cleaning"],
+    "excludes": ["New CCTV system purchase", "Major cabling overhaul"],
+    "priceRange": "₹799 - ₹5999",
+    "warranty": "90-day service warranty"
+  },
+  "Batteries / UPS": {
+    "icon": "🔋",
+    "coverage": ["Servicing", "Repair", "Cleaning"],
+    "includes": ["Battery testing", "Terminal cleaning", "UPS diagnostics", "Minor repairs"],
+    "excludes": ["New battery/UPS purchase", "Major circuit board repair"],
+    "priceRange": "₹299 - ₹2499",
+    "warranty": "30-day service warranty"
+  },
+  "AC Installation, Service": {
+    "icon": "❄️",
+    "coverage": ["Split AC", "Window AC", "Central Cooling"],
+    "includes": ["Gas refill", "Coil cleaning", "Thermostat repair", "Fan motor servicing"],
+    "excludes": ["New installation", "Duct work"],
+    "priceRange": "₹499 - ₹2999",
+    "warranty": "90-day service warranty"
+  },
+  "Refrigerator / Fridge Services": {
+    "icon": "🧊",
+    "coverage": ["Top freezer", "Bottom freezer", "Side-by-side"],
+    "includes": ["Cooling failure", "Frost buildup", "Door seal leaks", "Thermostat repair"],
+    "excludes": ["New refrigerator purchase", "Compressor replacement"],
+    "priceRange": "₹799 - ₹3999",
+    "warranty": "60-day service warranty"
+  },
+  "Laptop and PC": {
+    "icon": "💻",
+    "coverage": ["Screen replacement", "Virus removal", "Hardware upgrades"],
+    "includes": ["Software installation", "Data recovery", "Keyboard replacement", "RAM upgrades"],
+    "excludes": ["New laptop purchase", "Motherboard replacement"],
+    "priceRange": "₹999 - ₹4999",
+    "warranty": "30-day service warranty"
+  },
+  "Annual Maintenance": {
+    "icon": "🗓️",
+    "coverage": ["Home appliances", "Systems"],
+    "includes": ["Scheduled checkups", "Minor repairs", "Preventive maintenance", "Long-term planning"],
+    "excludes": ["Major part replacements", "New installations"],
+    "priceRange": "Varies by contract",
+    "warranty": "As per contract"
+  },
+  "Electrician": {
+    "icon": "⚡",
+    "coverage": ["Wiring", "Repair", "Maintenance"],
+    "includes": ["Switch/socket repair", "Circuit breaker issues", "Minor wiring fixes", "Light fixture repair"],
+    "excludes": ["New house wiring", "Major electrical panel upgrades"],
+    "priceRange": "₹299 - ₹3999",
+    "warranty": "30-day service warranty"
+  },
+  "Washing Machine Repair": {
+    "icon": "🧺",
+    "coverage": ["Top load", "Front load", "Semi-automatic"],
+    "includes": ["Draining problems", "Washer not turning on", "Belt replacement", "Motor servicing"],
+    "excludes": ["New washing machine purchase", "Drum replacement"],
+    "priceRange": "₹699 - ₹3499",
+    "warranty": "90-day service warranty"
+  },
+  "Electricial Installation": {
+    "icon": "⚡",
+    "coverage": ["Wiring", "Installation", "Maintenance"],
+    "includes": ["New wiring setup", "Switchboard installation", "Socket installation", "Minor repairs"],
+    "excludes": ["Major electrical panel upgrades", "Full home rewiring"],
+    "priceRange": "₹799 - ₹4999",
+    "warranty": "30-day service warranty"
+  },
+  "Smart Home Installations": {
+    "icon": "🏠",
+    "coverage": ["Smart lighting", "Smart thermostats", "Smart security systems"],
+    "includes": ["Device installation", "Wiring setup", "App configuration", "Maintenance"],
+    "excludes": ["New device purchase", "Major structural wiring"],
+    "priceRange": "₹999 - ₹6999",
+    "warranty": "30-day service warranty"
+  },
+  "Lighting Installations": {
+    "icon": "💡",
+    "coverage": ["Indoor lighting", "Outdoor lighting", "Decorative lighting"],
+    "includes": ["Fixture installation", "Wiring setup", "Bulb replacement", "Maintenance"],
+    "excludes": ["Major electrical rewiring", "Custom lighting design"],
+    "priceRange": "₹499 - ₹3999",
+    "warranty": "30-day service warranty"
+  },
+  "Ventillation Installation, Services": {
+    "icon": "🌬️",
+    "coverage": ["Exhaust fans", "HVAC vents", "Kitchen ventilation"],
+    "includes": ["Vent installation", "Duct cleaning", "Motor repair", "Maintenance"],
+    "excludes": ["New HVAC system purchase", "Major ductwork overhaul"],
+    "priceRange": "₹799 - ₹4999",
+    "warranty": "30-day service warranty"
+  },
+  "Plumbing Services - Minor": {
+    "icon": "🔧",
+    "coverage": ["Minor piping repairs", "Faucet fixes", "Drain cleaning"],
+    "includes": ["Leak repair", "Faucet replacement", "Minor pipe fixes", "Unclogging drains"],
+    "excludes": ["Major piping replacement", "Structural plumbing changes"],
+    "priceRange": "₹299 - ₹1999",
+    "warranty": "30-day service warranty"
+  },
+  "Drywall repair and maintenance": {
+    "icon": "🛠️",
+    "coverage": ["Wall repairs", "Patching", "Maintenance"],
+    "includes": ["Hole patching", "Crack repair", "Surface smoothing", "Minor repainting"],
+    "excludes": ["Full wall replacement", "Structural repairs"],
+    "priceRange": "₹499 - ₹2999",
+    "warranty": "30-day service warranty"
+  },
+  "Minor electrical": {
+    "icon": "⚡",
+    "coverage": ["Small electrical repairs", "Outlet fixes", "Switch repairs"],
+    "includes": ["Socket replacement", "Switch repair", "Minor wiring fixes", "Light installation"],
+    "excludes": ["Major electrical panel upgrades", "Full rewiring"],
+    "priceRange": "₹299 - ₹1999",
+    "warranty": "30-day service warranty"
+  },
+  "Carpentry": {
+    "icon": "🪚",
+    "coverage": ["Furniture repair", "Door/window fixes", "Custom woodwork"],
+    "includes": ["Door hinge repair", "Furniture assembly", "Wood polishing", "Minor installations"],
+    "excludes": ["Full furniture construction", "Major structural carpentry"],
+    "priceRange": "₹599 - ₹3999",
+    "warranty": "30-day service warranty"
+  },
+  "Solar Panel Installation, Services": {
+    "icon": "☀️",
+    "coverage": ["Solar panel setup", "Maintenance", "Repairs"],
+    "includes": ["Panel installation", "Inverter servicing", "Wiring checks", "Cleaning"],
+    "excludes": ["New solar system purchase", "Large-scale grid integration"],
+    "priceRange": "₹999 - ₹7999",
+    "warranty": "90-day service warranty"
+  },
+  "Operating System Installation & Upgrade": {
+    "icon": "💾",
+    "coverage": ["Windows", "Linux", "macOS installation and upgrades"],
+    "includes": ["OS installation", "Updates", "System optimization", "Basic software setup"],
+    "excludes": ["Hardware repair", "Proprietary software license costs"],
+    "priceRange": "₹499 - ₹2499",
+    "warranty": "15-day service warranty"
+  },
+  "Antivirus & Security Software Installation": {
+    "icon": "🛡️",
+    "coverage": ["Antivirus", "Malware protection", "Firewall setup"],
+    "includes": ["Software installation", "Malware removal", "Firewall configuration", "Security scans"],
+    "excludes": ["Hardware repair", "Proprietary software licenses"],
+    "priceRange": "₹499 - ₹1999",
+    "warranty": "15-day service warranty"
+  },
+  "Driver Installation & Updates": {
+    "icon": "💾",
+    "coverage": ["Device drivers for printers", "Scanners", "GPUs"],
+    "includes": ["Driver installation", "Updates", "Compatibility checks", "Troubleshooting"],
+    "excludes": ["Hardware repair", "Proprietary software licenses"],
+    "priceRange": "₹399 - ₹1499",
+    "warranty": "15-day service warranty"
+  },
+  "Data Backup & Recovery": {
+    "icon": "💾",
+    "coverage": ["Data backup", "Recovery", "Cloud setup"],
+    "includes": ["Backup setup", "Data recovery", "Cloud integration", "Data migration"],
+    "excludes": ["Hardware repair", "Proprietary software licenses"],
+    "priceRange": "₹799 - ₹3499",
+    "warranty": "15-day service warranty"
+  },
+  "Printer/Scanner Software Setup": {
+    "icon": "🖨️",
+    "coverage": ["Printer and scanner software installation"],
+    "includes": ["Driver installation", "Network setup", "Utility configuration", "Troubleshooting"],
+    "excludes": ["Hardware repair", "New printer/scanner purchase"],
+    "priceRange": "₹399 - ₹1499",
+    "warranty": "15-day service warranty"
+  },
+  "Annual Maintenance Contract (AMC)": {
+    "icon": "🗓️",
+    "coverage": ["Home appliances", "Systems"],
+    "includes": ["Scheduled checkups", "Minor repairs", "Preventive maintenance", "Appliance servicing"],
+    "excludes": ["Major part replacements", "New installations"],
+    "priceRange": "Varies by contract",
+    "warranty": "As per contract"
+  },
+  "Appliance Maintenance": {
+    "icon": "🛠️",
+    "coverage": ["AC", "Fridge", "Washing machine", "Other appliances"],
+    "includes": ["Routine servicing", "Cleaning", "Minor repairs", "Performance checks"],
+    "excludes": ["Major part replacements", "New appliance purchase"],
+    "priceRange": "₹599 - ₹3499",
+    "warranty": "30-day service warranty"
+  },
+  "General Home Health Check": {
+    "icon": "🏠",
+    "coverage": ["Electrical", "Plumbing", "Structural systems"],
+    "includes": ["Inspection of wiring", "Pipes", "Structural integrity", "Minor fixes"],
+    "excludes": ["Major structural renovations", "Full system replacements"],
+    "priceRange": "₹999 - ₹4999",
+    "warranty": "30-day service warranty"
+  },
+  "Roof & Waterproofing Maintenance": {
+    "icon": "🏠",
+    "coverage": ["Roof inspection", "Waterproofing repairs"],
+    "includes": ["Leak detection", "Crack sealing", "Membrane repair", "Minor fixes"],
+    "excludes": ["Full roof replacement", "Major structural repairs"],
+    "priceRange": "₹799 - ₹4999",
+    "warranty": "30-day service warranty"
+  },
+  "Workstation & Furniture Assembly": {
+    "icon": "🪑",
+    "coverage": ["Desk", "Chair", "Cubicle assembly"],
+    "includes": ["Furniture assembly", "Workstation setup", "Minor adjustments"],
+    "excludes": ["New furniture purchase", "Custom furniture design"],
+    "priceRange": "₹599 - ₹3999",
+    "warranty": "30-day service warranty"
+  },
+  "Office Electrical Maintenance": {
+    "icon": "⚡",
+    "coverage": ["Lighting", "Switchboards", "Sockets", "UPS systems"],
+    "includes": ["Light fixture repair", "Socket replacement", "UPS servicing", "Minor wiring"],
+    "excludes": ["New electrical panel installation", "Full office rewiring"],
+    "priceRange": "₹799 - ₹4999",
+    "warranty": "30-day service warranty"
+  },
+  "Networking & IT Setup": {
+    "icon": "🌐",
+    "coverage": ["LAN", "Wi-Fi", "Server racks"],
+    "includes": ["Network cabling", "Wi-Fi setup", "Server rack installation", "Troubleshooting"],
+    "excludes": ["New server purchase", "Large-scale IT infrastructure deployment"],
+    "priceRange": "₹999 - ₹7999",
+    "warranty": "30-day service warranty"
+  },
+  "Printer & Office Equipment Setup": {
+    "icon": "🖨️",
+    "coverage": ["Printers", "Scanners", "Projectors"],
+    "includes": ["Equipment installation", "Driver setup", "Network configuration", "Maintenance"],
+    "excludes": ["New equipment purchase", "Major hardware repairs"],
+    "priceRange": "₹599 - ₹3999",
+    "warranty": "30-day service warranty"
+  }
+}
