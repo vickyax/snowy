@@ -167,7 +167,7 @@ useEffect(() => {
       <div className="w-full  flex items-center justify-between py-2 lg:py-5">
         {/* Logo */}
        
-<div className="ml-2 flex mr-1  flex-col lg:flex-row items-start text-blue-400">
+<div className="ml-2 flex mr-1 pb-1 flex-col lg:flex-row items-start text-blue-400">
   <button
     className={`no-underline  font-bold text-[18px] md:text-2xl lg:text-2xl cursor-pointer flex items-center space-x-1 ${
       navFloat
@@ -191,19 +191,19 @@ useEffect(() => {
       Services
     </span>
   </button>
-  <div className="ml-0 lg:ml-5 bg-transparent flex flex-row items-center space-x-2">
-    <button className={`flex items-center ${!navFloat ? "hidden" : "relative"} text-black hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
+  <div className="ml-0 lg:ml-5 bg-transparent flex-row items-center space-x-2">
+    <button className={`items-center  ${!navFloat ? "hidden" : "relative"} text-black mt-1  hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
       <Cart2 sx={{ fontSize: 30 }}/>
     </button>
     <Search navFloat={navFloat}/>
   </div>
   <div className={`${navFloat ? "hidden" : "block"}`}>
-  <span className="text-black font-bold lg:text-[18px] sm:text-[8px] flex items-center mt-1">
+  <span className="text-black font-bold lg:text-[18px] sm:text-[8px] items-center mt-1">
     <CallIcon className="!w-4 !h-4 lg:mr-2 sm:mr-0" />
     +91 9790189488
   </span>
 
-<button className="w-screen mt-2 cursor-pointer bg-[#00BFFF]/30 text-black py-2  text-start font-semibold text-sm shadow-sm rounded-sm overflow-x-hidden">
+<button className="w-screen mt-2 cursor-pointer bg-[#00BFFF]/30 text-black  text-start font-semibold text-sm shadow-sm rounded-sm overflow-x-hidden">
   <PlaceIcon sx={{ fontSize: 20 }}/>
   To 123 Main Street, Coimbatore, 641008
   <Drop/>
@@ -212,13 +212,13 @@ useEffect(() => {
 </div>
 
         {/* Hamburger Menu (visible on small screens) */}
-        <div className="block lg:hidden pr-4" ref={hamburgerEl}>
-          <button className={`flex  items-center top-[20px] right-[48px] ${navFloat?"hidden":"absolute"} text-black cursor-pointer hover:text-gray-900 focus:outline-none transition duration-300`}>
+        <div className="block lg:hidden " ref={hamburgerEl}>
+          <button className={`items-center  top-[15px] right-[50px] ${navFloat?"hidden":"fixed"} text-black cursor-pointer hover:text-gray-900 focus:outline-none transition duration-300`}>
             <Cart2 sx={{ fontSize: 30 }}/>
           </button>
           <button
             onClick={toggleMenu}
-            className={`flex items-center top-[22px] right-3 absolute text-black hover:text-gray-900 focus:outline-none transition duration-300`}
+            className={`items-center top-[15px] right-3 absolute text-black hover:text-gray-900 focus:outline-none transition duration-300`}
             aria-label="Toggle menu"
           >
             <svg className="fill-current h-7 w-7" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -231,7 +231,7 @@ useEffect(() => {
         {/* Sidebar Overlay */}
         {showMenu && (
           <div
-            className="fixed inset-0 z-40 bg-black/60 bg-opacity-40 transition-opacity duration-300 lg:hidden"
+            className="fixed inset-0 z-50 bg-black/60 bg-opacity-40 transition-opacity duration-300 lg:hidden"
             onClick={toggleMenu} // Closes sidebar when overlay is clicked
           />
         )}
