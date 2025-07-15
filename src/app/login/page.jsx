@@ -183,9 +183,9 @@ const LoginPage = () => {
           ) : (
             <>
               {step === 'input' && (
-                <div className="flex items-center">
-                    <select id="country-code" name="country-code" value={countryCode} onChange={e => setCountryCode(e.target.value)} className="h-full rounded-md rounded-r-none border border-r-0 border-gray-300 bg-transparent py-3 pl-3 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm">
-                        {countryCodes.map(c => <option key={c.code} value={c.code}>{c.name} ({c.code})</option>)}
+                <div className="flex items-center ">
+                    <select id="country-code" name="country-code" value={countryCode} onChange={e => setCountryCode(e.target.value)} className="h-full  rounded-md rounded-r-none border border-r-0 border-gray-300 bg-transparent py-4 pl-2 pr-3 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm">
+                        {countryCodes.map(c => <option key={c.code} value={c.code}>{c.code}</option>)}
                     </select>
                     <div className="relative flex-grow">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><PhoneIcon className="h-5 w-5 text-gray-400" /></div>
