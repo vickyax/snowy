@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-
+import Image from "next/image";
 interface CardProps {
   content1: string;
   content2: string;
@@ -16,10 +16,13 @@ const Card: React.FC<CardProps> = ({ content1, content2, btn, link, image }) => 
         <div
           className="bg-transparent rounded shadow pt-5 flex items-start h-full min-h-[10rem] transition duration-300 hover:shadow-[0px_3px_7px_0px_#2d63c2] hover:scale-105 hover:bg-gray-200"
         >
-          <img
-            src={image}
-            className="h-32 w-32 rounded mr-4 object-cover flex-shrink-0"
+          <Image
+            src={'/'+image||'/placeholder-image.png'}
+            width={128}  // ~32px × 4 (tailwind's lg:w-32)
+            height={128}
+            className=" rounded mr-4 object-cover flex-shrink-0"
             alt=""
+            loading="lazy"
           />
           <div className="flex overflow-y-auto text-wrap flex-col text-base text-gray-600 ml-2 justify-start break-words text-left w-full">
   <span className="font-bold text-[15px]  lg:text-[18] animate-fade-in-delay-400">

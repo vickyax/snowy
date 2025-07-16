@@ -31,7 +31,7 @@ const levenshteinDistance = (a, b) => {
 const ServiceCard = ({ service }) => (
     <a href={`/TechService/${service.link}`}>
   <div className="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out">
-    <img src={service.image} alt={service.content1} className="w-full h-40 object-cover" />
+    <img src={service.image} alt={service.content1} className="w-full h-50 object-cover" />
     <div className="p-4">
       <h2 className="text-lg font-bold text-gray-800 truncate">{service.content1}</h2>
       <p className="text-sm text-gray-600 mt-1">{service.content2}</p>

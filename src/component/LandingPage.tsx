@@ -51,6 +51,7 @@ const App: React.FC = () => {
       className="w-full leading-normal tracking-normal bg-gradient-to-r from-cyan-200/60 to-cyan-400"
       style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
     >
+     
       <Nav />
       <Small />
       <Scroller />

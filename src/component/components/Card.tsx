@@ -1,6 +1,6 @@
 // components/Card.tsx or components/Card.jsx
 import React from "react";
-
+import Image from "next/image";
 interface CardProps {
   content1: string;
   content2: string;
@@ -32,16 +32,17 @@ const Card: React.FC<CardProps> = ({ content1, content2, link, image }) => {
             group animate-fade-in duration-300
           "
         >
-          <img
-            src={image}
+          <Image
+            src={'/'+image || "/default-image.png"}
+            alt="Preview Image"
+            width={72}  // ~32px × 4 (tailwind's lg:w-32)
+            height={75}
+            loading="lazy"
             className="
-              w-20 h-20 sm:w-20 sm:h-20 lg:h-32 lg:w-32 md:w-32 
-              rounded 
+              rounded
               transition-transform duration-500 ease-out
               scale-100 group-hover:scale-110
-              
             "
-            alt=""
           />
           <div className="flex flex-col text-base text-[13px]  lg:text-[20px] text-gray-600 ml-2 justify-start break-words text-left"> {/* Aligned text to left, removed text-center */}
             <span className="font-bold  animate-fade-in-delay-400"> {/* Responsive font sizes */}
