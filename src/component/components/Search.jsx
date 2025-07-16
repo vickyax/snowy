@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Card from "./SearchCard";
 import SearchIcon from '@mui/icons-material/Search';
+import "./Search.css"; // Import the new CSS file
 
 const SearchCards = ({ navFloat }) => {
   var services = require('./services.json');
@@ -38,12 +39,15 @@ const SearchCards = ({ navFloat }) => {
     }
   };
 
+  // Conditionally apply the 'nav-float' class
+  const searchWrapperClass = `search-input-wrapper ${navFloat ? "nav-float" : ""}`;
+
   return (
-    <div className="search-container bg-transparent block mt-1">
-      <div className={ `items-center ${navFloat?"w-[260px] ml-10  fixed top-0 lg:top-8 z-50":"mb-1 w-[320px] ml-0 lg:ml-20"} lg:w-[400px] mt-2 lg:mt-0 sm:mt-2 border bg-white/90 rounded-lg p-2`}>
-        <SearchIcon className="text-gray-500 mr-2" />
+    <div className="search-container">
+      <div className={searchWrapperClass}>
+        <SearchIcon className="search-icon" />
         <input
-          className="bg-transparent outline-none text-black"
+          className="search-input"
           type="text"
           placeholder="Search"
           value={searchTerm}
@@ -52,12 +56,12 @@ const SearchCards = ({ navFloat }) => {
         />
       </div>
       {showSuggestions && (
-        <div className="suggestions fixed bg-white border border-gray-300 rounded-lg shadow-md mt-1 z-10 w-[300px]">
+        <div className="suggestions-container">
           {filteredCards.map((card, index) => (
             <div
               key={index}
-              type="button"
-              className="suggestion-card text-left w-full"
+              role="button"
+              className="suggestion-item"
               onClick={() => selectCard(card)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") selectCard(card);

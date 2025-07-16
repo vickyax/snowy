@@ -1,0 +1,95 @@
+/* Container for the whole search component */
+.search-container {
+  background-color: transparent; /* bg-transparent */
+  display: block; /* block */
+  margin-top: 0.25rem; /* mt-1 */
+  position: relative; /* To position suggestions correctly */
+}
+
+/* Wrapper for the search icon and input field */
+.search-input-wrapper {
+  display: flex; /* For aligning icon and input */
+  align-items: center; /* items-center */
+  border: 1px solid #e5e7eb; /* border */
+  background-color: rgba(255, 255, 255, 0.9); /* bg-white/90 */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 0.5rem; /* p-2 */
+  margin-top: 0.5rem; /* mt-2 & sm:mt-2 */
+
+  /* Default styles for when navFloat is false */
+  margin-bottom: 0.25rem; /* mb-1 */
+  width: 320px; /* w-[320px] */
+  margin-left: 0; /* ml-0 */
+}
+
+/* Modifier class applied when navFloat is true */
+.search-input-wrapper.nav-float {
+  width: 260px; /* w-[260px] */
+  margin-left: 2.5rem; /* ml-10 */
+  position: fixed; /* fixed */
+  top: 0; /* top-0 */
+  z-index: 50; /* z-50 */
+  /* Resetting default styles that are not needed */
+  margin-bottom: 0;
+}
+
+/* Search Icon styles */
+.search-icon {
+  color: #6b7280; /* text-gray-500 */
+  margin-right: 0.5rem; /* mr-2 */
+}
+
+/* Search Input field styles */
+.search-input {
+  background-color: transparent; /* bg-transparent */
+  outline: none; /* outline-none */
+  color: black; /* text-black */
+  width: 100%; /* Makes the input fill the available space */
+}
+
+/* Suggestions dropdown container */
+.suggestions-container {
+  position: absolute; /* Positioned relative to .search-container */
+  background-color: white; /* bg-white */
+  border: 1px solid #d1d5db; /* border border-gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-md */
+  margin-top: 0.25rem; /* mt-1 */
+  z-index: 10; /* z-10 */
+  width: 300px; /* w-[300px] */
+  max-height: 400px; /* Good practice for long lists */
+  overflow-y: auto;
+}
+
+/* Individual suggestion item */
+.suggestion-item {
+  text-align: left; /* text-left */
+  width: 100%; /* w-full */
+  cursor: pointer;
+  padding: 0.25rem; /* Added for better spacing */
+}
+
+.suggestion-item:hover,
+.suggestion-item:focus {
+  background-color: #f3f4f6; /* A light gray for hover/focus state */
+}
+
+/* Media Queries for responsiveness */
+
+/* Large screens (lg: breakpoint in Tailwind) */
+@media (min-width: 1024px) {
+  .search-input-wrapper {
+    width: 400px; /* lg:w-[400px] */
+    margin-top: 0; /* lg:mt-0 */
+  }
+
+  /* Default state on large screens */
+  .search-input-wrapper:not(.nav-float) {
+     margin-left: 5rem; /* lg:ml-20 */
+  }
+
+  /* Floated state on large screens */
+  .search-input-wrapper.nav-float {
+    top: 2rem; /* lg:top-8 */
+  }
+}

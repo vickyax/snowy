@@ -163,13 +163,10 @@ useEffect(() => {
           Successfully logged out.
         </Alert>
       )}
-
-      <div className="w-full  flex items-center justify-between py-2 lg:py-5">
-        {/* Logo */}
        
-<div className="ml-2 flex mr-1 pb-1 flex-col lg:flex-row items-start text-blue-400">
+<div className="ml-2 flex mr-1 pb-3 flex-col lg:flex-row items-start text-blue-400">
   <button
-    className={`no-underline  font-bold text-[18px] md:text-2xl lg:text-2xl cursor-pointer flex items-center space-x-1 ${
+    className={`no-underline mt-2  font-bold text-[18px] md:text-2xl lg:text-2xl cursor-pointer flex items-center space-x-1 ${
       navFloat
         ? "hidden "
         : "text-blue-800 bg-clip-text "
@@ -192,7 +189,7 @@ useEffect(() => {
     </span>
   </button>
   <div className="ml-0 lg:ml-5 bg-transparent flex-row items-center space-x-2">
-    <button className={`items-center  ${!navFloat ? "hidden" : "relative"} text-black mt-1  hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
+    <button className={`items-center  ${!navFloat ? "hidden" : "relative"} text-black mt-[10px]  hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
       <Cart2 sx={{ fontSize: 30 }}/>
     </button>
     <Search navFloat={navFloat}/>
@@ -484,7 +481,7 @@ useEffect(() => {
                 </div>
             </div>
         </div>
-      </div>
+  
       <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
     </nav>
   );
