@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 import supabase from "@/utils/supabaseServer";
+import Area from "./Areas";
 import {
   Settings as SettingsIcon,
   Call as CallIcon,
@@ -17,7 +18,6 @@ import {
   Login as LoginIcon,
   ShoppingCart as Cart2,
   Place as PlaceIcon,
-  ArrowDropDown as Drop,
 } from "@mui/icons-material";
 import Alert from "@mui/material/Alert";
 import snowfeed from "@/public/logojc3.jpg";
@@ -154,8 +154,8 @@ useEffect(() => {
   return (
     <nav
       id="header"
-      className={`fixed w-screen z-50 top-0 text-white ${
-        navFloat ? "bg-[#00BFFF]/80" : "bg-[#00BFFF]/40 shadow-md"
+      className={`fixed w-screen z-50 top-0 text-white  ${
+        navFloat ? "bg-[#00BFFF]/80 h-[55px] lg:h-[83px]" : "bg-[#00BFFF]/40 shadow-md h-[180px] lg:h-[140px]"
       } transition duration-300 ease-in-out`}
     >
       {showSuccess && (
@@ -188,30 +188,36 @@ useEffect(() => {
       Services
     </span>
   </button>
-  <div className="ml-0 lg:ml-5 bg-transparent flex-row items-center space-x-2">
-    <button className={`items-center  ${!navFloat ? "hidden" : "relative"} text-black mt-[10px]  hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
-      <Cart2 sx={{ fontSize: 30 }}/>
+  <div className={`items-center flex flex-col right-16 lg:right-[720px] ${navFloat ? "hidden" : "absolute"} text-black mt-[16px] z-10 lg:mt-[95px] hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
+      <Area/>
+
+    </div>
+  {/* <div className={`items-center flex flex-col right-20 ${navFloat ? "hidden" : "absolute"} text-black mt-[15px] z-11 lg:mt-[35px] hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
+    <Drop/>
+    </div> */}
+  <div className="ml-0 lg:mt-3 lg:ml-5 bg-transparent flex-row  items-center space-x-2">
+    <button className={`items-center  ${!navFloat ? "hidden" : "absolute"} text-black mt-[10px] z-12 lg:mt-[25px] hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
+      <Cart2  onClick={()=>router.push('/mycart')} sx={{ fontSize: 30 }}/>
     </button>
     <Search navFloat={navFloat}/>
   </div>
-  <div className={`${navFloat ? "hidden" : "block"}`}>
-  <span className="text-black font-bold lg:text-[18px] sm:text-[8px] items-center mt-1">
-    <CallIcon className="!w-4 !h-4 lg:mr-2 sm:mr-0" />
-    +91 9790189488
-  </span>
+  <div className={`${navFloat ? "hidden" : "block"} lg:ml-3 lg:mt-3`}>
+  <a href="tel:+919790189488" className="text-black font-bold lg:text-[18px]  flex flex-row sm:text-[8px] items-center mt-1">
+  <Image src="/callicon.gif" width={25} height={25} alt="Call Icon" />
+  +91 9790189488
+</a>
 
-<button className="w-screen mt-2 cursor-pointer bg-[#00BFFF]/30 text-black  text-start font-semibold text-sm shadow-sm rounded-sm overflow-x-hidden">
+<button className="w-screen mt-2 cursor-pointer  text-black  text-start font-semibold text-sm  rounded-sm overflow-x-hidden">
   <PlaceIcon sx={{ fontSize: 20 }}/>
   To 123 Main Street, Coimbatore, 641008
-  <Drop/>
 </button>
   </div>
 </div>
 
         {/* Hamburger Menu (visible on small screens) */}
         <div className="block lg:hidden " ref={hamburgerEl}>
-          <button className={`items-center  top-[15px] right-[50px] ${navFloat?"hidden":"fixed"} text-black cursor-pointer hover:text-gray-900 focus:outline-none transition duration-300`}>
-            <Cart2 sx={{ fontSize: 30 }}/>
+          <button className={`items-center z-12  top-[15px] right-[50px] ${navFloat?"hidden":"fixed"} text-black cursor-pointer hover:text-gray-900 focus:outline-none transition duration-300`}>
+            <Cart2 sx={{ fontSize: 30 }} onClick={()=>router.push('/mycart')}/>
           </button>
           <button
             onClick={toggleMenu}
@@ -307,7 +313,7 @@ useEffect(() => {
                       <button
                         onClick={() => { router.push("/my-orders"); setShowMobileProfileDropdown(false); }}
                         className="cursor-pointer bg-gray-100 w-full text-left px-4 py-2 hover:bg-gray-200 rounded-lg transition duration-300"
-                      ><Cart className="!h-5 !w-5 mr-1 "/>
+                      ><Cart  onClick={()=>router.push('/mycart')} className="!h-5 !w-5 mr-1 "/>
                         My Orders
                       </button>
                     </li>
@@ -426,7 +432,7 @@ useEffect(() => {
                   <button
                     onClick={() => { router.push("/my-orders"); setShowProfileDropdown(false); }}
                     className="cursor-pointer w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition duration-300"
-                  ><Cart className="!h-5 !w-5 mr-1"/>
+                  ><Cart  onClick={()=>router.push('/mycart')} className="!h-5 !w-5 mr-1"/>
                     My Orders
                   </button>
                 </li>

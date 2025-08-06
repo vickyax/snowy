@@ -1,6 +1,8 @@
 // components/Card.tsx or components/Card.jsx
 import React from "react";
 import Image from "next/image";
+import Link from "next/link"; // Using Next.js Link for better navigation
+
 interface CardProps {
   content1: string;
   content2: string;
@@ -9,52 +11,58 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ content1, content2, link, image }) => {
+  // Define the destination URL, providing a fallback if the link is not present.
+  const href = link ? `/TechService/${link}` : '#';
+
   return (
-    <div
-      className="
-        cursor-pointer
-        p-2 sm:p-4
-        flex flex-col
-        font-arial
-        rounded-lg
-        border-2
-        transition-all duration-300 ease-in-out transform
-        bg-transparent
-        hover:scale-102 
-        hover:shadow-[5px_3px_3px_0px_#2d63c2] 
-      "
-    >
-      <a href={`/TechService/${link}`} className="no-underline hover:no-underline flex-1 "> {/* flex-1 here helps the link take available space */}
+    // Use Next.js Link for client-side routing, which is more performant.
+    // The 'legacyBehavior' prop allows the 'a' tag to be nested.
+    <Link href={href} passHref legacyBehavior>
+      {/* The anchor tag becomes the main clickable element.
+          'group' is used to apply styles to child elements on hover. */}
+      <a className="block w-full h-full group no-underline">
         <div
           className="
-            flex items-start
-            hover:bg-gray-200 rounded 
-            group animate-fade-in duration-300
+            flex flex-col         
+            h-full               
+            bg-transparent         
+            rounded-xl             
+            p-2       
+            overflow-hidden         
+            transition-all duration-300 ease-in-out
+            hover:shadow-xl       
+            hover:-translate-y-1   
           "
         >
-          <Image
-            src={'/'+image || "/default-image.png"}
-            alt="Preview Image"
-            width={72}  // ~32px × 4 (tailwind's lg:w-32)
-            height={75}
-            loading="lazy"
-            className="
-              rounded
-              transition-transform duration-500 ease-out
-              scale-100 group-hover:scale-110
-            "
-          />
-          <div className="flex flex-col text-base text-[13px]  lg:text-[20px] text-gray-600 ml-2 justify-start break-words text-left"> {/* Aligned text to left, removed text-center */}
-            <span className="font-bold  animate-fade-in-delay-400"> {/* Responsive font sizes */}
+          {/* Image Container */}
+          <div className="relative w-full aspect-video overflow-hidden">
+            <Image
+              src={'/' + (image || "default-image.png")}
+              alt={content1 || "Service Image"} // Use content1 for a more descriptive alt text
+               width={128}  // ~32px × 4 (tailwind's lg:w-32)
+            height={150}
+              className="
+                object-cover    
+                transition-transform duration-500 ease-out
+                group-hover:scale-105 
+              "
+              loading="lazy"
+             
+            />
+          </div>
+
+          {/* Text Content Container */}
+          <div className="flex flex-col flex-grow py-4">
+            <h3 className="font-bold text-[16px] text-gray-800 ">
               {content1}
-            </span>
-            <span className=" mt-2 animate-fade-in-delay-600"> {/* Responsive font sizes */}
+            </h3>
+            <p className="mt-2 text-sm text-gray-600 line-clamp-3 flex-grow">
               {content2}
-            </span>
+            </p>
           </div>
         </div>
       </a>
-    </div>
+    </Link>
   );
 };
 

@@ -2,23 +2,23 @@
 import Image from "next/image";
 
 const categories = [
-  { img: "/img1.png", label: "Home Appliances", id: "home-appliances" },
+  { img: "/img1.png", label: "Home Appliances", id: "home" },
   { img: "/img2.png", label: "Electronics", id: "electronics" },
   { img: "/img3.png", label: "Installations", id: "installations" },
-  { img: "/img4.png", label: "Handyman", id: "handyman" },
+  { img: "/img4.png", label: "Handyman", id: "handy" },
   { img: "/img5.png", label: "Software", id: "software" },
   { img: "/img6.png", label: "Maintenance", id: "maintenance" },
-  { img: "/img7.png", label: "Office Services", id: "office-services" },
+  { img: "/img7.png", label: "Office Services", id: "office" },
 ];
 
 const Small = () => (
   <div className="w-full py-3 pt-[200px]">
-    <div className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-transparent px-2">
+    <div className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-blue-200 hide-scrollbar scrollbar-track-transparent px-2">
       {categories.map(({ img, label,id }, idx) => (
         <a href={`#${id}`} key={label} className="no-underline">
           <div
           key={id}
-            className="flex flex-col items-center min-w-[90px] max-w-[100px] bg-white rounded-lg shadow-md p-2 mx-1 cursor-pointer hover:bg-blue-50 transition"
+            className="flex flex-col items-center min-w-[120px] pb-2 max-w-[150px] bg-white rounded-lg shadow-md p-2 mx-1 cursor-pointer hover:bg-blue-50 transition"
           >
             <div className="w-14 h-14 relative mb-2">
               <Image

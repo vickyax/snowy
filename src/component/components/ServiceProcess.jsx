@@ -261,10 +261,10 @@ const ServiceProcess = ({ service }) => {
   return (
     <div className="space-y-4">
       <h3 className="font-bold text-lg">Service Process</h3>
-      <div className="flex justify-between">
+      <div className="flex justify-between  overflow-auto ">
         {steps.map((step, i) => (
-          <div key={i} className="text-center w-1/5">
-            <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+          <div key={i} className="text-center m-2  w-1/5">
+            <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mb-2">
               {step.icon}
             </div>
             <p className="text-sm font-medium">{step.title}</p>

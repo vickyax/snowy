@@ -1,290 +1,364 @@
 {
+  
   "TV, Smart Tv Repair": {
     "icon": "📺",
+    "description": "Our expert technicians handle a wide range of TV issues, from flickering screens to power supply problems. We service LCD, LED, OLED, and Smart TVs to get your entertainment back on track without the cost of a new television.",
     "coverage": ["LCD", "LED", "OLED", "Smart TVs"],
     "includes": ["Flickering screens", "Audio delays", "Remote control issues", "Power supply repair"],
     "excludes": ["New TV purchase", "Screen replacement"],
     "priceRange": "₹499 - ₹2999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "t"
   },
   "Wifi Router": {
     "icon": "📶",
+    "description": "Experiencing slow internet or frequent connection drops? Our specialists diagnose and repair all types of home and business routers, including mesh systems, ensuring a stable and fast connection.",
     "coverage": ["Home routers", "Business routers", "Mesh systems"],
     "includes": ["Slow connection", "Frequent drops", "Overheating", "Firmware updates"],
     "excludes": ["New router purchase", "Network setup"],
     "priceRange": "₹299 - ₹1999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "wf"
   },
   "Plumbing Installation, Repair - Major": {
     "icon": "🔧",
+    "description": "From leaky pipes to new fixture installations, our professional plumbers manage major plumbing tasks. We provide comprehensive solutions including pipe replacement and drain cleaning to ensure your plumbing system functions flawlessly.",
     "coverage": ["Piping installation", "Maintenance", "Replacement", "Major plumbing systems"],
     "includes": ["Leak detection", "Pipe replacement", "Fixture installation", "Drain cleaning"],
     "excludes": ["Major structural changes", "Water heater replacement (unless specified)"],
     "priceRange": "₹799 - ₹5999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "pl"
   },
   "RO Water Purifier": {
     "icon": "💧",
+    "description": "Ensure your drinking water is pure and safe. We offer complete service and repair for your RO water purifier, including filter and UV lamp replacement, membrane cleaning, and leak repairs.",
     "coverage": ["Internal services", "External services", "Filter replacement"],
     "includes": ["Membrane cleaning", "UV lamp replacement", "Leak repair", "Filter replacement"],
     "excludes": ["New RO system purchase", "Major system overhaul"],
     "priceRange": "₹499 - ₹2499",
-    "warranty": "60-day service warranty"
+    "warranty": "60-day service warranty",
+    "group": "ro"
   },
   "Dishwasher": {
     "icon": "🍽️",
+    "description": "Don't let a faulty dishwasher disrupt your routine. Our team addresses common problems like draining issues, leaks, and control panel errors, providing reliable repairs to keep your appliance running efficiently.",
     "coverage": ["Draining problems", "Servicing", "Motor issues"],
     "includes": ["Leak repair", "Control panel diagnostics", "Spray arm cleaning", "Filter maintenance"],
     "excludes": ["New dishwasher purchase", "Major internal component replacement"],
     "priceRange": "₹599 - ₹2999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "d"
   },
   "Printers / Scanners": {
     "icon": "🖨️",
+    "description": "From paper jams to connectivity problems, we provide swift repair and maintenance for your printers and scanners. Our services include driver installation and software management to ensure seamless operation.",
     "coverage": ["Software management", "Repair", "Maintenance"],
     "includes": ["Driver installation", "Paper jam removal", "Connectivity issues", "Scanner calibration"],
     "excludes": ["New printer purchase", "Major hardware replacement (e.g., print head)"],
     "priceRange": "₹399 - ₹1999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "p"
   },
   "CCTV Installation, Services": {
     "icon": "📹",
+    "description": "Secure your property with our professional CCTV installation and maintenance services. We handle everything from camera setup and configuration to wiring inspection, ensuring your surveillance system is reliable and effective.",
     "coverage": ["Service", "Installation", "Maintenance"],
     "includes": ["Camera setup", "Wiring inspection", "DVR/NVR configuration", "Lens cleaning"],
     "excludes": ["New CCTV system purchase", "Major cabling overhaul"],
     "priceRange": "₹799 - ₹5999",
-    "warranty": "90-day service warranty"
+    "warranty": "90-day service warranty",
+    "group": "cc"
   },
   "Batteries / UPS": {
     "icon": "🔋",
+    "description": "Keep your power backup systems ready for action. We service and repair batteries and UPS units, including diagnostics and terminal cleaning, to ensure you're never left in the dark.",
     "coverage": ["Servicing", "Repair", "Cleaning"],
     "includes": ["Battery testing", "Terminal cleaning", "UPS diagnostics", "Minor repairs"],
     "excludes": ["New battery/UPS purchase", "Major circuit board repair"],
     "priceRange": "₹299 - ₹2499",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "b"
   },
   "AC Installation, Service": {
     "icon": "❄️",
+    "description": "Stay cool and comfortable with our expert AC services. We handle repairs for all types of units, including gas refilling, coil cleaning, and fan motor servicing, to ensure optimal cooling performance.",
     "coverage": ["Split AC", "Window AC", "Central Cooling"],
     "includes": ["Gas refill", "Coil cleaning", "Thermostat repair", "Fan motor servicing"],
     "excludes": ["New installation", "Duct work"],
     "priceRange": "₹499 - ₹2999",
-    "warranty": "90-day service warranty"
+    "warranty": "90-day service warranty",
+    "group": "a"
   },
   "Refrigerator / Fridge Services": {
     "icon": "🧊",
+    "description": "Is your refrigerator failing to cool or building up frost? Our technicians diagnose and fix a variety of fridge issues, from thermostat repairs to door seal leaks, preserving your food and peace of mind.",
     "coverage": ["Top freezer", "Bottom freezer", "Side-by-side"],
     "includes": ["Cooling failure", "Frost buildup", "Door seal leaks", "Thermostat repair"],
     "excludes": ["New refrigerator purchase", "Compressor replacement"],
     "priceRange": "₹799 - ₹3999",
-    "warranty": "60-day service warranty"
+    "warranty": "60-day service warranty",
+    "group": "r"
   },
   "Laptop and PC": {
     "icon": "💻",
+    "description": "Facing computer troubles? We offer a wide array of services for laptops and PCs, including screen replacement, virus removal, data recovery, and hardware upgrades, to get your device running like new.",
     "coverage": ["Screen replacement", "Virus removal", "Hardware upgrades"],
     "includes": ["Software installation", "Data recovery", "Keyboard replacement", "RAM upgrades"],
     "excludes": ["New laptop purchase", "Motherboard replacement"],
     "priceRange": "₹999 - ₹4999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "l"
   },
   "Annual Maintenance": {
     "icon": "🗓️",
+    "description": "Sign up for our Annual Maintenance Contract for hassle-free upkeep of your home appliances and systems. We provide scheduled checkups and preventive maintenance to avoid unexpected breakdowns and ensure long-term reliability.",
     "coverage": ["Home appliances", "Systems"],
     "includes": ["Scheduled checkups", "Minor repairs", "Preventive maintenance", "Long-term planning"],
     "excludes": ["Major part replacements", "New installations"],
     "priceRange": "Varies by contract",
-    "warranty": "As per contract"
+    "warranty": "As per contract",
+    "group": "an"
   },
   "Electrician": {
     "icon": "⚡",
+    "description": "Our certified electricians provide safe and reliable solutions for all your electrical needs. From fixing switches and sockets to addressing circuit breaker issues, we handle repairs and maintenance with utmost professionalism.",
     "coverage": ["Wiring", "Repair", "Maintenance"],
     "includes": ["Switch/socket repair", "Circuit breaker issues", "Minor wiring fixes", "Light fixture repair"],
     "excludes": ["New house wiring", "Major electrical panel upgrades"],
     "priceRange": "₹299 - ₹3999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "e"
   },
   "Washing Machine Repair": {
     "icon": "🧺",
+    "description": "From a washer that won't drain to one that won't start, our technicians are equipped to handle it all. We service top load, front load, and semi-automatic models, providing reliable motor servicing and belt replacements to get your laundry routine back on track.",
     "coverage": ["Top load", "Front load", "Semi-automatic"],
     "includes": ["Draining problems", "Washer not turning on", "Belt replacement", "Motor servicing"],
     "excludes": ["New washing machine purchase", "Drum replacement"],
     "priceRange": "₹699 - ₹3499",
-    "warranty": "90-day service warranty"
+    "warranty": "90-day service warranty",
+    "group": "w"
   },
   "Electricial Installation": {
     "icon": "⚡",
+    "description": "Need new wiring or fixtures installed? Our electrical installation service covers everything from setting up new switchboards and sockets to ensuring all connections are safe and up to code, handled by our certified professionals.",
     "coverage": ["Wiring", "Installation", "Maintenance"],
     "includes": ["New wiring setup", "Switchboard installation", "Socket installation", "Minor repairs"],
     "excludes": ["Major electrical panel upgrades", "Full home rewiring"],
     "priceRange": "₹799 - ₹4999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "el"
   },
   "Smart Home Installations": {
     "icon": "🏠",
+    "description": "Transform your house into a smart home with our expert installation services. We set up, configure, and connect your smart lighting, thermostats, and security systems, ensuring seamless integration with your lifestyle.",
     "coverage": ["Smart lighting", "Smart thermostats", "Smart security systems"],
     "includes": ["Device installation", "Wiring setup", "App configuration", "Maintenance"],
     "excludes": ["New device purchase", "Major structural wiring"],
     "priceRange": "₹999 - ₹6999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "sm"
   },
   "Lighting Installations": {
     "icon": "💡",
+    "description": "Brighten up your space with our professional lighting installation. We handle the secure wiring and mounting of all types of indoor, outdoor, and decorative light fixtures, ensuring a perfect ambiance for your home or office.",
     "coverage": ["Indoor lighting", "Outdoor lighting", "Decorative lighting"],
     "includes": ["Fixture installation", "Wiring setup", "Bulb replacement", "Maintenance"],
     "excludes": ["Major electrical rewiring", "Custom lighting design"],
     "priceRange": "₹499 - ₹3999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "li"
   },
   "Ventillation Installation, Services": {
     "icon": "🌬️",
+    "description": "Improve your indoor air quality with our ventilation services. We install and maintain exhaust fans, kitchen hoods, and HVAC vents, including duct cleaning and motor repairs, to ensure fresh air circulates effectively.",
     "coverage": ["Exhaust fans", "HVAC vents", "Kitchen ventilation"],
     "includes": ["Vent installation", "Duct cleaning", "Motor repair", "Maintenance"],
     "excludes": ["New HVAC system purchase", "Major ductwork overhaul"],
     "priceRange": "₹799 - ₹4999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "vis"
   },
   "Plumbing Services - Minor": {
     "icon": "🔧",
+    "description": "For quick and reliable solutions to everyday plumbing issues, our minor repair service is here to help. We handle everything from dripping faucets and leaky pipes to unclogging drains, preventing small problems from becoming big ones.",
     "coverage": ["Minor piping repairs", "Faucet fixes", "Drain cleaning"],
     "includes": ["Leak repair", "Faucet replacement", "Minor pipe fixes", "Unclogging drains"],
     "excludes": ["Major piping replacement", "Structural plumbing changes"],
     "priceRange": "₹299 - ₹1999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "plm"
   },
   "Drywall repair and maintenance": {
     "icon": "🛠️",
+    "description": "Restore the pristine look of your walls with our drywall repair services. Our team expertly patches holes, repairs cracks, and smoothes surfaces, handling minor touch-up painting to make imperfections disappear.",
     "coverage": ["Wall repairs", "Patching", "Maintenance"],
     "includes": ["Hole patching", "Crack repair", "Surface smoothing", "Minor repainting"],
     "excludes": ["Full wall replacement", "Structural repairs"],
     "priceRange": "₹499 - ₹2999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "dry"
   },
   "Minor electrical": {
     "icon": "⚡",
+    "description": "Have a flickering light or a faulty outlet? Our minor electrical service is perfect for quick fixes. Our electricians can safely handle socket replacements, switch repairs, and other small jobs to keep your home's electricity running smoothly.",
     "coverage": ["Small electrical repairs", "Outlet fixes", "Switch repairs"],
     "includes": ["Socket replacement", "Switch repair", "Minor wiring fixes", "Light installation"],
     "excludes": ["Major electrical panel upgrades", "Full rewiring"],
     "priceRange": "₹299 - ₹1999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "mel"
   },
   "Carpentry": {
     "icon": "🪚",
+    "description": "Our skilled carpenters provide a range of services to repair and enhance your wooden fixtures. From furniture assembly and door hinge repairs to wood polishing, we deliver quality craftsmanship for all your minor carpentry needs.",
     "coverage": ["Furniture repair", "Door/window fixes", "Custom woodwork"],
     "includes": ["Door hinge repair", "Furniture assembly", "Wood polishing", "Minor installations"],
     "excludes": ["Full furniture construction", "Major structural carpentry"],
     "priceRange": "₹599 - ₹3999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "cpy"
   },
   "Solar Panel Installation, Services": {
     "icon": "☀️",
+    "description": "Harness the power of the sun with our solar panel installation and maintenance services. Our team handles everything from panel setup and inverter servicing to regular cleaning, helping you switch to a sustainable energy source.",
     "coverage": ["Solar panel setup", "Maintenance", "Repairs"],
     "includes": ["Panel installation", "Inverter servicing", "Wiring checks", "Cleaning"],
     "excludes": ["New solar system purchase", "Large-scale grid integration"],
     "priceRange": "₹999 - ₹7999",
-    "warranty": "90-day service warranty"
+    "warranty": "90-day service warranty",
+    "group": "spi"
   },
   "Operating System Installation & Upgrade": {
     "icon": "💾",
+    "description": "Boost your computer's performance and security with a fresh OS installation or upgrade. We service Windows, macOS, and Linux systems, ensuring a clean setup, system optimization, and installation of essential software.",
     "coverage": ["Windows", "Linux", "macOS installation and upgrades"],
     "includes": ["OS installation", "Updates", "System optimization", "Basic software setup"],
     "excludes": ["Hardware repair", "Proprietary software license costs"],
     "priceRange": "₹499 - ₹2499",
-    "warranty": "15-day service warranty"
+    "warranty": "15-day service warranty",
+    "group": "os"
   },
   "Antivirus & Security Software Installation": {
     "icon": "🛡️",
+    "description": "Protect your digital life from viruses and malware. We install and configure top-tier antivirus and security software, perform comprehensive scans, and set up firewalls to keep your personal data safe and secure.",
     "coverage": ["Antivirus", "Malware protection", "Firewall setup"],
     "includes": ["Software installation", "Malware removal", "Firewall configuration", "Security scans"],
     "excludes": ["Hardware repair", "Proprietary software licenses"],
     "priceRange": "₹499 - ₹1999",
-    "warranty": "15-day service warranty"
+    "warranty": "15-day service warranty",
+    "group": "av"
   },
   "Driver Installation & Updates": {
     "icon": "💾",
+    "description": "Ensure all your computer's hardware components work flawlessly together. Our technicians handle the installation and updating of essential drivers for printers, graphics cards, and other peripherals, resolving compatibility and performance issues.",
     "coverage": ["Device drivers for printers", "Scanners", "GPUs"],
     "includes": ["Driver installation", "Updates", "Compatibility checks", "Troubleshooting"],
     "excludes": ["Hardware repair", "Proprietary software licenses"],
     "priceRange": "₹399 - ₹1499",
-    "warranty": "15-day service warranty"
+    "warranty": "15-day service warranty",
+    "group": "di"
   },
   "Data Backup & Recovery": {
     "icon": "💾",
+    "description": "Safeguard your most important files with our data backup and recovery services. We help you set up reliable backup systems, migrate data, and can assist in recovering lost files from storage devices, giving you complete peace of mind.",
     "coverage": ["Data backup", "Recovery", "Cloud setup"],
     "includes": ["Backup setup", "Data recovery", "Cloud integration", "Data migration"],
     "excludes": ["Hardware repair", "Proprietary software licenses"],
     "priceRange": "₹799 - ₹3499",
-    "warranty": "15-day service warranty"
+    "warranty": "15-day service warranty",
+    "group": "db"
   },
+  
   "Printer/Scanner Software Setup": {
     "icon": "🖨️",
+    "description": "Get your printer or scanner working seamlessly with your computer. Our software setup service ensures the correct drivers are installed, your device is connected to the network, and all utilities are configured for hassle-free printing and scanning.",
     "coverage": ["Printer and scanner software installation"],
     "includes": ["Driver installation", "Network setup", "Utility configuration", "Troubleshooting"],
     "excludes": ["Hardware repair", "New printer/scanner purchase"],
     "priceRange": "₹399 - ₹1499",
-    "warranty": "15-day service warranty"
+    "warranty": "15-day service warranty",
+    "group": "p"
   },
   "Annual Maintenance Contract (AMC)": {
     "icon": "🗓️",
+    "description": "Enjoy year-round peace of mind with our Annual Maintenance Contract. We provide scheduled checkups, preventive maintenance, and minor repairs for your home appliances and systems, helping you avoid costly breakdowns and extend their lifespan.",
     "coverage": ["Home appliances", "Systems"],
     "includes": ["Scheduled checkups", "Minor repairs", "Preventive maintenance", "Appliance servicing"],
     "excludes": ["Major part replacements", "New installations"],
     "priceRange": "Varies by contract",
-    "warranty": "As per contract"
+    "warranty": "As per contract",
+    "group": "al"
   },
   "Appliance Maintenance": {
     "icon": "🛠️",
+    "description": "Keep your essential home appliances in top condition with our routine maintenance service. We clean, service, and perform health checks on your AC, fridge, washing machine, and more to ensure they run efficiently and reliably.",
     "coverage": ["AC", "Fridge", "Washing machine", "Other appliances"],
     "includes": ["Routine servicing", "Cleaning", "Minor repairs", "Performance checks"],
     "excludes": ["Major part replacements", "New appliance purchase"],
     "priceRange": "₹599 - ₹3499",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "am"
   },
   "General Home Health Check": {
     "icon": "🏠",
+    "description": "Proactively care for your home with our General Health Check. Our experts will inspect your home's critical electrical, plumbing, and structural systems to identify and address minor issues before they become major problems.",
     "coverage": ["Electrical", "Plumbing", "Structural systems"],
     "includes": ["Inspection of wiring", "Pipes", "Structural integrity", "Minor fixes"],
     "excludes": ["Major structural renovations", "Full system replacements"],
     "priceRange": "₹999 - ₹4999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "ghc"
   },
   "Roof & Waterproofing Maintenance": {
     "icon": "🏠",
+    "description": "Protect your home from the elements with our roof and waterproofing maintenance. We specialize in detecting and sealing leaks, repairing cracks, and maintaining waterproofing membranes to prevent water damage and ensure your roof is secure.",
     "coverage": ["Roof inspection", "Waterproofing repairs"],
     "includes": ["Leak detection", "Crack sealing", "Membrane repair", "Minor fixes"],
     "excludes": ["Full roof replacement", "Major structural repairs"],
     "priceRange": "₹799 - ₹4999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "rf"
   },
   "Workstation & Furniture Assembly": {
     "icon": "🪑",
+    "description": "Save time and effort with our professional assembly service. We expertly build and set up your new desks, chairs, and other furniture, ensuring a sturdy and correctly assembled workstation or home furnishing.",
     "coverage": ["Desk", "Chair", "Cubicle assembly"],
     "includes": ["Furniture assembly", "Workstation setup", "Minor adjustments"],
     "excludes": ["New furniture purchase", "Custom furniture design"],
     "priceRange": "₹599 - ₹3999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "wfa"
   },
   "Office Electrical Maintenance": {
     "icon": "⚡",
+    "description": "Ensure your office's electrical systems are safe and reliable. Our maintenance service covers lighting fixtures, switchboards, sockets, and UPS systems, minimizing downtime and keeping your workspace productive.",
     "coverage": ["Lighting", "Switchboards", "Sockets", "UPS systems"],
     "includes": ["Light fixture repair", "Socket replacement", "UPS servicing", "Minor wiring"],
     "excludes": ["New electrical panel installation", "Full office rewiring"],
     "priceRange": "₹799 - ₹4999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "oem"
   },
   "Networking & IT Setup": {
     "icon": "🌐",
+    "description": "Establish a robust and efficient network for your office. Our IT setup service includes professional LAN cabling, Wi-Fi configuration, server rack installation, and network troubleshooting to keep your business connected.",
     "coverage": ["LAN", "Wi-Fi", "Server racks"],
     "includes": ["Network cabling", "Wi-Fi setup", "Server rack installation", "Troubleshooting"],
     "excludes": ["New server purchase", "Large-scale IT infrastructure deployment"],
     "priceRange": "₹999 - ₹7999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "it"
   },
   "Printer & Office Equipment Setup": {
     "icon": "🖨️",
+    "description": "Let us handle the setup of your essential office equipment. We provide complete installation for printers, scanners, and projectors, including driver setup and network configuration, so your team can get to work right away.",
     "coverage": ["Printers", "Scanners", "Projectors"],
     "includes": ["Equipment installation", "Driver setup", "Network configuration", "Maintenance"],
     "excludes": ["New equipment purchase", "Major hardware repairs"],
     "priceRange": "₹599 - ₹3999",
-    "warranty": "30-day service warranty"
+    "warranty": "30-day service warranty",
+    "group": "p"
   }
 }

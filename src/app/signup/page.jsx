@@ -1,8 +1,9 @@
+//signup page
+
 "use client";
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
-import { form } from 'framer-motion/client';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_DATABASE_URL,
@@ -20,18 +21,20 @@ const SignupPage = () => {
   });
   const [errors, setErrors] = useState({});
    const router = useRouter();
-  // const searchParams = useSearchParams();
-  // const redirect = searchParams.get('redirect') || '/';
-
-  const handleGoogleSignUp = async () => {
-    localStorage.setItem('pendingGoogleRole', formData.userRole);
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/auth/google-callback`
+   const handleGoogleSignUp = async () => {
+  // No more localStorage!
+  await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${window.location.origin}/`, // Redirect to the main page
+      data: {
+        role: formData.userRole, // Pass the role here
+        name: formData.name // You can pass other data too
       }
-    });
-  };
+    }
+  });
+};
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();

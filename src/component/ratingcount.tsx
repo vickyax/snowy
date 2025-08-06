@@ -51,7 +51,7 @@ const RatingCounter: React.FC = () => {
     // 1. `flex-col sm:flex-row`: Stack vertically on mobile, go horizontal on screens > 640px.
     // 2. `gap-4 sm:gap-8`: Use a smaller gap on mobile.
     // 3. `text-center sm:text-left`: Center text when stacked vertically.
-    <div className="w-full flex flex-col sm:flex-row justify-center items-center text-center sm:text-left gap-4 sm:gap-8 bg-gradient-to-r from-green-300/60 text-gray-600 p-4 lg:p-10 font-medium text-sm md:text-base">
+    <div className="w-full flex flex-col sm:flex-row justify-center items-center text-center sm:text-left gap-4 sm:gap-8 bg-gradient-to-r from-green-500/60 to-green-200/20 text-gray-600 p-4 lg:p-10 font-medium text-sm md:text-base">
       
       {/* Item 1: Total Services */}
       <span className="transition-transform duration-700 scale-100 animate-fade-in">

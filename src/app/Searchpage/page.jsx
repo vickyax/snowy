@@ -175,7 +175,7 @@ export default function App() {
   return (
     <>
     <Navbar />
-    <div className="bg-gray-100 text-black min-h-screen pt-[200px] font-sans">
+    <div className="bg-gray-100 text-black min-h-screen pt-[200px] pb-[100px]  font-sans">
         
       <div className="container mx-auto p-4 lg:p-8">
         <div className="flex flex-col md:flex-row md:space-x-8">

@@ -36,6 +36,16 @@ body {
   position: relative;
   display: inline-block;
 }
+button{
+  cursor: pointer;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
 .logo-ring::before {
   content: "";
   position: absolute;

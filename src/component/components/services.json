@@ -5,7 +5,8 @@
     "link": "TV%2C%20Smart%20Tv%20Repair",
     "category": "home",
     "id": "1ca897b4-780d-4926-a34b-63df80b255f6",
-    "image": "smarttv.png"
+    "image": "smarttv.png",
+    "show":[""]
   },
   {
     "content1": "Wifi Router",
@@ -42,7 +43,7 @@
   {
     "content1": "Printers / Scanners",
     "content2": "Software Management, Repair, Maintenance",
-    "link": "Printers%20/%20Scanners",
+    "link": "Printers%20%2F%20Scanners",
     "category": "electronics",
     "id": "95298c40-6de4-4827-858f-7665b80d0d12",
     "image": "printer.jpeg"
@@ -58,7 +59,7 @@
   {
     "content1": "Batteries / UPS",
     "content2": "Servicing, repair, cleaning",
-    "link": "Batteries%20/%20UPS",
+    "link": "Batteries%20%2F%20UPS",
     "category": "electronics",
     "id": "9dc32075-4b1d-4d8e-bd79-1f93dbeb8f7c",
     "image": "battery.jpg"
@@ -74,7 +75,7 @@
   {
     "content1": "Refrigerator / Fridge Services",
     "content2": "Cooling failure, frost buildup, door seal leaks",
-    "link": "Refrigerator%20/%20Fridge%20Services",
+    "link": "Refrigerator%20%2F%20Fridge%20Services",
     "category": "home",
     "id": "c1f777dd-27c4-4f0e-a049-f23ead2cb024",
     "image": "fridge.jpg"
@@ -216,7 +217,7 @@
   {
     "content1": "Printer/Scanner Software Setup",
     "content2": "Install and configure printer/scanner drivers and utilities",
-    "link": "Printer/Scanner%20Software%20Setup",
+    "link": "Printer%2FScanner%20Software%20Setup",
     "category": "software",
     "id": "sw-012",
     "image": "printerset.jpeg"
