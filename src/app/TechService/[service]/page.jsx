@@ -92,7 +92,7 @@ export default function ServicePage({ params }) {
         <div className="flex flex-col md:flex-row gap-6">
           {/* Image Carousel */}
            <div className="w-full overflow-x-auto scroll-smooth whitespace-nowrap scrollbar-hide pt-4 px-2">
-      <Scroll group={serviceDetails[normalizedService]?.group} numcards={5} />
+      <Scroll group={serviceDetails[normalizedService]?.group} img={serviceDetails[normalizedService]?.img} numcards={5} />
     </div>
  {showSuccess && (
           <Alert severity="success" className="fixed top-20 right-4 z-50">
@@ -127,11 +127,11 @@ export default function ServicePage({ params }) {
                 onChange={(e) => setSelectedDate(e.target.value)}
                 className="w-full rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-white text-gray-800 px-4 py-2"
               />
-              <button onClick={handleAddToCart} className="cursor-pointer  w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-200">
-                Add to Cart
-              </button>
               <button onClick={handlebook} className="cursor-pointer  w-full  bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-all duration-200">
                 Book Now
+              </button>
+              <button onClick={handleAddToCart} className="cursor-pointer  w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-200">
+                Add to Cart
               </button>
             </div>
             {errors && <div className="text-red-500 mt-4 text-center">{errors}</div>}

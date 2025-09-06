@@ -43,8 +43,8 @@ const Card: React.FC<CardProps> = ({ content1, content2, link, image }) => {
             height={150}
               className="
                 object-cover    
-                transition-transform duration-500 ease-out
-                group-hover:scale-105 
+                transition-transform lg:scale-150 rounded-sm duration-500 ease-out
+                group-hover:scale-105 lg:group-hover:scale-180
               "
               loading="lazy"
              

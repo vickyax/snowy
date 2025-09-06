@@ -30,7 +30,15 @@
     "link": "RO%20Water%20Purifier",
     "category": "home",
     "id": "5abbe36f-e205-4c30-9283-4c667fafd717",
-    "image": "purifier.png"
+    "image": "purifier.jpeg"
+  },
+  {
+    "content1": "Water Heater",
+    "content2": "Installation and Services",
+    "link": "Water%20Heater",
+    "category": "home",
+    "id": "5abbe36f-e205adwhawd-67fafd717",
+    "image": "waterheater.jpeg"
   },
   {
     "content1": "Dishwasher",
@@ -60,15 +68,15 @@
     "content1": "Batteries / UPS",
     "content2": "Servicing, repair, cleaning",
     "link": "Batteries%20%2F%20UPS",
-    "category": "electronics",
+    "category": ["electronics","home"],
     "id": "9dc32075-4b1d-4d8e-bd79-1f93dbeb8f7c",
-    "image": "battery.jpg"
+    "image": "battery.jpeg"
   },
   {
-    "content1": "AC Installation, Service",
+    "content1": "AC Installation, Repair Service",
     "content2": "Gas refill, compressor failure issues",
     "link": "AC%20Installation%2C%20Service",
-    "category": "install",
+    "category": ["install","home"],
     "id": "b7b60d2e-be21-4337-a51f-80c08a688b9e",
     "image": "acimage.jpg"
   },
@@ -81,12 +89,20 @@
     "image": "fridge.jpg"
   },
   {
-    "content1": "Laptop and PC",
+    "content1": "Laptop",
     "content2": "Screen replacement, Virus removal",
     "link": "Laptop%20and%20PC",
     "category": "Electronics",
     "id": "cac04bed-74b6-4942-9913-3892ed888b45",
-    "image": "laptop.jpg"
+    "image": "laptop.jpeg"
+  },
+  {
+    "content1": "PC Services",
+    "content2": "Screen replacement, Virus removal",
+    "link": "PC",
+    "category": "Electronics",
+    "id": "cac04bedQHFAHIFE42-9913-3892ed888b45",
+    "image": "PC.jpeg"
   },
   {
     "content1": "Annual Maintenance",
@@ -180,6 +196,14 @@
     "link": "Solar%20Panel%20Installation%2C%20Services",
     "category": "install",
     "id": "QDq-8fa-ad93-591",
+    "image": "solar.jpeg"
+  },
+  {
+    "content1": "Solar Panel Maintenance, Services",
+    "content2": "Piping installation, maintenance, replacement",
+    "link": "Solar%20Panel%20Maintenance%2C%20Services",
+    "category": "maintenance",
+    "id": "QDq-8fa-hfwhf-591",
     "image": "solar.jpeg"
   },
   {

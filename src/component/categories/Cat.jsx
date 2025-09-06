@@ -22,7 +22,7 @@ const ServiceSection= ({category,catname,content}) => {
             {content}
           </p>
         </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {homeServices.map((card, idx) => (
           <Card
             key={card.id||idx}

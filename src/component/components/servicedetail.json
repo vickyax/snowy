@@ -68,6 +68,7 @@
     "excludes": ["New CCTV system purchase", "Major cabling overhaul"],
     "priceRange": "₹799 - ₹5999",
     "warranty": "90-day service warranty",
+    "img":"jpeg",
     "group": "cc"
   },
   "Batteries / UPS": {
@@ -80,7 +81,7 @@
     "warranty": "30-day service warranty",
     "group": "b"
   },
-  "AC Installation, Service": {
+  "AC Installation, Repair Service": {
     "icon": "❄️",
     "description": "Stay cool and comfortable with our expert AC services. We handle repairs for all types of units, including gas refilling, coil cleaning, and fan motor servicing, to ensure optimal cooling performance.",
     "coverage": ["Split AC", "Window AC", "Central Cooling"],
@@ -100,7 +101,17 @@
     "warranty": "60-day service warranty",
     "group": "r"
   },
-  "Laptop and PC": {
+  "Laptop": {
+    "icon": "💻",
+    "description": "Facing computer troubles? We offer a wide array of services for laptops and PCs, including screen replacement, virus removal, data recovery, and hardware upgrades, to get your device running like new.",
+    "coverage": ["Screen replacement", "Virus removal", "Hardware upgrades"],
+    "includes": ["Software installation", "Data recovery", "Keyboard replacement", "RAM upgrades"],
+    "excludes": ["New laptop purchase", "Motherboard replacement"],
+    "priceRange": "₹999 - ₹4999",
+    "warranty": "30-day service warranty",
+    "group": "l"
+  },
+  "PC": {
     "icon": "💻",
     "description": "Facing computer troubles? We offer a wide array of services for laptops and PCs, including screen replacement, virus removal, data recovery, and hardware upgrades, to get your device running like new.",
     "coverage": ["Screen replacement", "Virus removal", "Hardware upgrades"],
@@ -158,6 +169,7 @@
     "excludes": ["New device purchase", "Major structural wiring"],
     "priceRange": "₹999 - ₹6999",
     "warranty": "30-day service warranty",
+    "img":"jpeg",
     "group": "sm"
   },
   "Lighting Installations": {
@@ -168,6 +180,7 @@
     "excludes": ["Major electrical rewiring", "Custom lighting design"],
     "priceRange": "₹499 - ₹3999",
     "warranty": "30-day service warranty",
+    "img":"jpeg",
     "group": "li"
   },
   "Ventillation Installation, Services": {
@@ -178,8 +191,19 @@
     "excludes": ["New HVAC system purchase", "Major ductwork overhaul"],
     "priceRange": "₹799 - ₹4999",
     "warranty": "30-day service warranty",
+    "img":"jpeg",
     "group": "vis"
   },
+  "Water Heater": {
+"icon": "💧",
+"description": "Ensure a consistent supply of hot water with our professional water heater services. We handle installation, repair, and maintenance for various types of water heaters, including geysers and tankless models, to keep your system running efficiently and safely.",
+"coverage": ["Electric geysers", "Gas water heaters", "Tankless water heaters", "Solar water heaters"],
+"includes": ["Installation and replacement", "Repair and troubleshooting", "Anode rod replacement", "Leak detection and repair", "Routine maintenance and flushing"],
+"excludes": ["Major plumbing re-piping", "Boiler installation and repair", "Water softener installation"],
+"priceRange": "₹999 - ₹6999",
+"warranty": "60-day service warranty",
+"group": "whs"
+},
   "Plumbing Services - Minor": {
     "icon": "🔧",
     "description": "For quick and reliable solutions to everyday plumbing issues, our minor repair service is here to help. We handle everything from dripping faucets and leaky pipes to unclogging drains, preventing small problems from becoming big ones.",
@@ -221,6 +245,17 @@
     "group": "cpy"
   },
   "Solar Panel Installation, Services": {
+    "icon": "☀️",
+    "description": "Harness the power of the sun with our solar panel installation and maintenance services. Our team handles everything from panel setup and inverter servicing to regular cleaning, helping you switch to a sustainable energy source.",
+    "coverage": ["Solar panel setup", "Maintenance", "Repairs"],
+    "includes": ["Panel installation", "Inverter servicing", "Wiring checks", "Cleaning"],
+    "excludes": ["New solar system purchase", "Large-scale grid integration"],
+    "priceRange": "₹999 - ₹7999",
+    "warranty": "90-day service warranty",
+    "img":"jpeg",
+    "group": "spi"
+  },
+  "Solar Panel Maintenance, Services": {
     "icon": "☀️",
     "description": "Harness the power of the sun with our solar panel installation and maintenance services. Our team handles everything from panel setup and inverter servicing to regular cleaning, helping you switch to a sustainable energy source.",
     "coverage": ["Solar panel setup", "Maintenance", "Repairs"],

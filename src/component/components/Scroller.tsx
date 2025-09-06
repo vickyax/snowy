@@ -123,31 +123,31 @@ const ScrollableCards = () => {
       onMouseLeave={() => setIsHovering(false)}
     >
       {/* Scroll Arrows */}
-      <div className="hidden md:flex absolute inset-y-0 left-0 items-center z-10">
-        <button 
-          onClick={() => scroll('left')}
-          disabled={scrollPosition <= 0}
-          className={`bg-white bg-opacity-80 rounded-full p-2 shadow-lg transition-all ${
-            scrollPosition <= 0 ? 'opacity-30' : 'hover:bg-opacity-100 hover:scale-110'
-          }`}
-          aria-label="Scroll left"
-        >
-          <FaChevronLeft className="text-blue-600" />
-        </button>
-      </div>
+       <div className="absolute inset-y-0 left-0 flex items-center z-10 md:flex">
+              <button
+                onClick={() => scroll('left')}
+                disabled={scrollPosition <= 0}
+                className={`bg-white/70 bg-opacity-60 rounded-full p-2 shadow-sm transition-all ${
+                  scrollPosition <= 0 ? 'opacity-30' : 'hover:bg-opacity-80 hover:scale-110'
+                }`}
+                aria-label="Scroll left"
+              >
+                <FaChevronLeft className="text-blue-600" />
+              </button>
+            </div>
       
-      <div className="hidden md:flex absolute inset-y-0 right-0 items-center z-10">
-        <button 
-          onClick={() => scroll('right')}
-          disabled={scrollPosition >= maxScroll}
-          className={`bg-white bg-opacity-80 rounded-full p-2 shadow-lg transition-all ${
-            scrollPosition >= maxScroll ? 'opacity-30' : 'hover:bg-opacity-100 hover:scale-110'
-          }`}
-          aria-label="Scroll right"
-        >
-          <FaChevronRight className="text-blue-600" />
-        </button>
-      </div>
+            <div className="absolute inset-y-0 right-0 flex items-center z-10 md:flex">
+              <button
+                onClick={() => scroll('right')}
+                disabled={scrollPosition >= maxScroll}
+                className={`bg-white/70 bg-opacity-60 rounded-full p-2 shadow-sm transition-all ${
+                  scrollPosition >= maxScroll ? 'opacity-30' : 'hover:bg-opacity-80 hover:scale-110'
+                }`}
+                aria-label="Scroll right"
+              >
+                <FaChevronRight className="text-blue-600" />
+              </button>
+            </div>
       
       {/* Scroll Shadows */}
       <div className={`absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-green-300/50 to-transparent z-0 transition-opacity ${

@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-const ScrollableCards = ({ group, numcards = 5 }) => {
+const ScrollableCards = ({ group,img, numcards = 5 }) => {
   const containerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
@@ -45,7 +45,7 @@ const ScrollableCards = ({ group, numcards = 5 }) => {
   const scroll = useCallback((direction) => {
     if (!containerRef.current) return;
 
-    const scrollAmount = containerRef.current.clientWidth * 0.8;
+    const scrollAmount = containerRef.current.clientWidth*1.05 ;
     let newPosition = containerRef.current.scrollLeft;
 
     newPosition = direction === 'left'
@@ -65,7 +65,7 @@ const ScrollableCards = ({ group, numcards = 5 }) => {
         <button
           onClick={() => scroll('left')}
           disabled={scrollPosition <= 0}
-          className={`bg-white bg-opacity-60 rounded-full p-2 shadow-sm transition-all ${
+          className={`bg-white/70 bg-opacity-60 rounded-full p-3 shadow-sm transition-all ${
             scrollPosition <= 0 ? 'opacity-30' : 'hover:bg-opacity-80 hover:scale-110'
           }`}
           aria-label="Scroll left"
@@ -78,7 +78,7 @@ const ScrollableCards = ({ group, numcards = 5 }) => {
         <button
           onClick={() => scroll('right')}
           disabled={scrollPosition >= maxScroll}
-          className={`bg-white bg-opacity-60 rounded-full p-2 shadow-sm transition-all ${
+          className={`bg-white/70 bg-opacity-60 rounded-full p-3 shadow-sm transition-all ${
             scrollPosition >= maxScroll ? 'opacity-30' : 'hover:bg-opacity-80 hover:scale-110'
           }`}
           aria-label="Scroll right"
@@ -96,7 +96,7 @@ const ScrollableCards = ({ group, numcards = 5 }) => {
         {Array.from({ length: numcards }, (_, i) => (
           <img
             key={i}
-            src={`/${group}${i + 1}.jpg`}
+            src={`/${group}${i + 1}.${img==='jpeg'?'jpeg':'jpg'}`}
             className="h-80 w-full lg:h-120 lg:w-150 overflow-hidden m-2 object-cover flex-shrink-0"
             alt=""
           />
