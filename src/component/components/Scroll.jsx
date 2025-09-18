@@ -96,7 +96,7 @@ const ScrollableCards = ({ group,img, numcards = 5 }) => {
         {Array.from({ length: numcards }, (_, i) => (
           <img
             key={i}
-            src={`/${group}${i + 1}.${img==='jpeg'?'jpeg':'jpg'}`}
+            src={`https://qgwnbursfgkzjvwapfcn.supabase.co/storage/v1/object/public/Public_images/${group}${i + 1}.${img==='jpeg'?'jpeg':'jpg'}`}
             className="h-80 w-full lg:h-120 lg:w-150 overflow-hidden m-2 object-cover flex-shrink-0"
             alt=""
           />

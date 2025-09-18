@@ -28,7 +28,7 @@
     "excludes": ["Major structural changes", "Water heater replacement (unless specified)"],
     "priceRange": "₹799 - ₹5999",
     "warranty": "30-day service warranty",
-    "group": "pl"
+    "group": "plm"
   },
   "RO Water Purifier": {
     "icon": "💧",
@@ -89,7 +89,7 @@
     "excludes": ["New installation", "Duct work"],
     "priceRange": "₹499 - ₹2999",
     "warranty": "90-day service warranty",
-    "group": "a"
+    "group": "ac"
   },
   "Refrigerator / Fridge Services": {
     "icon": "🧊",
@@ -99,7 +99,7 @@
     "excludes": ["New refrigerator purchase", "Compressor replacement"],
     "priceRange": "₹799 - ₹3999",
     "warranty": "60-day service warranty",
-    "group": "r"
+    "group": "f"
   },
   "Laptop": {
     "icon": "💻",
