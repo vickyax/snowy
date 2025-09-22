@@ -50,7 +50,7 @@
     "warranty": "30-day service warranty",
     "group": "d"
   },
-  "Printers / Scanners": {
+  "Printers": {
     "icon": "🖨️",
     "description": "From paper jams to connectivity problems, we provide swift repair and maintenance for your printers and scanners. Our services include driver installation and software management to ensure seamless operation.",
     "coverage": ["Software management", "Repair", "Maintenance"],
@@ -59,6 +59,82 @@
     "priceRange": "₹399 - ₹1999",
     "warranty": "30-day service warranty",
     "group": "p"
+  },
+  "Scanners": {
+    "icon": "🖨️",
+    "description": "From paper jams to connectivity problems, we provide swift repair and maintenance for your printers and scanners. Our services include driver installation and software management to ensure seamless operation.",
+    "coverage": ["Software management", "Repair", "Maintenance"],
+    "includes": ["Driver installation", "Paper jam removal", "Connectivity issues", "Scanner calibration"],
+    "excludes": ["New scanner purchase", "Major hardware replacement (e.g., print head)"],
+    "priceRange": "₹399 - ₹1999",
+    "warranty": "30-day service warranty",
+    "group": "p"
+  },
+  "Schools": {
+    "icon": "🏫",
+    "description": "A comprehensive annual maintenance contract for educational institutions. We ensure a safe and functional learning environment by managing all essential facility services, from electrical safety to plumbing and civil works.",
+    "coverage": ["Facility Management", "Preventive Maintenance", "General Repairs"],
+    "includes": ["Electrical system checks", "Plumbing & sanitation maintenance", "HVAC servicing", "Fire safety equipment checks", "Minor civil repairs"],
+    "excludes": ["Major structural renovations", "Purchase of new equipment", "Specialized lab equipment servicing"],
+    "priceRange": "₹15,000 - ₹1,00,000+ / month",
+    "warranty": "Annual service assurance",
+    "img": "jpeg",
+    "group": "sch"
+  },
+  "Colleges": {
+    "icon": "🎓",
+    "description": "Tailored annual maintenance for college and university campuses. Our services cover large-scale facilities, including academic blocks, hostels, and labs, ensuring seamless operations for students and staff.",
+    "coverage": ["Campus Facility Management", "Scheduled Maintenance", "Breakdown Support"],
+    "includes": ["Generator & backup power servicing", "Campus-wide electrical grid maintenance", "Large-scale plumbing systems", "HVAC for auditoriums", "Fire safety compliance"],
+    "excludes": ["New construction projects", "Overhaul of specialized machinery", "Landscaping and groundskeeping"],
+    "priceRange": "₹50,000 - ₹5,00,000+ / month",
+    "warranty": "Annual service assurance",
+    "img": "jpeg",
+    "group": "col"
+  },
+  "Office": {
+    "icon": "💼",
+    "description": "Reliable annual maintenance for corporate offices and commercial spaces. We keep your workspace productive by managing all technical and civil maintenance, minimizing downtime and operational disruptions.",
+    "coverage": ["Corporate Facility Services", "Preventive Maintenance", "On-call Repairs"],
+    "includes": ["Workstation electrical checks", "AC servicing", "Plumbing maintenance (restrooms, pantry)", "Interior lighting checks", "Minor carpentry repairs"],
+    "excludes": ["IT and server maintenance", "Purchase of new office equipment", "Major interior renovation"],
+    "priceRange": "₹8,000 - ₹75,000+ / month",
+    "warranty": "Annual service assurance",
+    "img": "jpeg",
+    "group": "corp"
+  },
+  "Shops": {
+    "icon": "🛍️",
+    "description": "Keep your retail business running smoothly with our dedicated annual maintenance for shops and showrooms. We focus on ensuring a safe, attractive, and comfortable shopping experience by maintaining lighting, signage, and essential facilities.",
+    "coverage": ["Retail Maintenance", "Preventive Upkeep", "Breakdown Assistance"],
+    "includes": ["Interior and display lighting checks", "Signage and lightbox maintenance", "AC servicing for customer comfort", "Rolling shutter and door maintenance", "Restroom plumbing checks"],
+    "excludes": ["POS system and billing machine repairs", "Purchase of new fixtures or furniture", "Visual merchandising setup", "Major renovation"],
+    "priceRange": "₹5,000 - ₹50,000+ / month",
+    "warranty": "Annual service assurance",
+    "img": "jpeg",
+    "group": "rtl"
+  },
+  "Hotels": {
+    "icon": "🏨",
+    "description": "Specialized annual maintenance for the hospitality industry. We ensure guest comfort and safety by maintaining critical systems like electrical, plumbing, HVAC, and fire safety to the highest standards.",
+    "coverage": ["Hospitality Maintenance", "Guest Room Servicing", "Emergency Repairs"],
+    "includes": ["Room AC and plumbing checks", "Kitchen equipment maintenance", "Pool filtration and pump servicing", "Generator maintenance", "Fire safety compliance"],
+    "excludes": ["Major kitchen equipment replacement", "Room renovation and refurbishment", "Linen and laundry machine servicing"],
+    "priceRange": "₹25,000 - ₹2,00,000+ / month",
+    "warranty": "24/7 support with annual assurance",
+    "img": "jpeg",
+    "group": "hosp"
+  },
+  "Home": {
+    "icon": "🏡",
+    "description": "A complete annual maintenance package for residential properties. Enjoy peace of mind knowing that all your essential home maintenance needs, from plumbing to electrical, are covered by professionals.",
+    "coverage": ["Home Care", "Preventive Checks", "Handyman Services"],
+    "includes": ["Annual AC servicing", "Electrical panel check", "Plumbing inspection for leaks", "Water tank cleaning", "Minor repairs"],
+    "excludes": ["Purchase of new appliances", "Major renovation or painting work", "Pest control services (available as add-on)"],
+    "priceRange": "₹10,000 - ₹50,000 / year",
+    "warranty": "1-year service warranty on covered tasks",
+    "img": "jpeg",
+    "group": "res"
   },
   "CCTV Installation, Services": {
     "icon": "📹",

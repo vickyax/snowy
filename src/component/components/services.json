@@ -49,12 +49,20 @@
     "image": "dish.jpg"
   },
   {
-    "content1": "Printers / Scanners",
+    "content1": "Printers",
     "content2": "Software Management, Repair, Maintenance",
-    "link": "Printers%20%2F%20Scanners",
+    "link": "Printers",
     "category": "electronics",
-    "id": "95298c40-6de4-4827-858f-7665b80d0d12",
+    "id": "95298c40-6de4-wdjbab58f-7665b80d0d12",
     "image": "printer.jpeg"
+  },
+  {
+    "content1": "Scanners",
+    "content2": "Software Management, Repair, Maintenance",
+    "link": "Scanners",
+    "category": "electronics",
+    "id": "95298c40-awmfnf-7665b80d0d12",
+    "image": "scanner.jpeg"
   },
   {
     "content1": "CCTV Installation, Services",
@@ -70,7 +78,7 @@
     "link": "Batteries%20%2F%20UPS",
     "category": ["electronics","home"],
     "id": "9dc32075-4b1d-4d8e-bd79-1f93dbeb8f7c",
-    "image": "battery.jpeg"
+    "image": "battery.jpg"
   },
   {
     "content1": "AC Installation, Repair Service",
@@ -197,6 +205,54 @@
     "category": "install",
     "id": "QDq-8fa-ad93-591",
     "image": "solar.jpeg"
+  },
+  {
+    "content1": "Schools",
+    "content2": "Comprehensive annual maintenance contracts for educational institutions.",
+    "link": "Schools",
+    "category": "annualmain",
+    "id": "amc_school_9a2b",
+    "image": "school.jpeg"
+  },
+  {
+    "content1": "Home",
+    "content2": "Complete annual maintenance packages for residential properties and villas.",
+    "link": "Home",
+    "category": "annualmain",
+    "id": "amc_home_3c4d",
+    "image": "home1.jpeg"
+  },
+  {
+    "content1": "Colleges",
+    "content2": "Tailored annual maintenance solutions for college campuses and facilities.",
+    "link": "Colleges",
+    "category": "annualmain",
+    "id": "amc_college_5e6f",
+    "image": "college.jpeg"
+  },
+  {
+    "content1": "Office",
+    "content2": "Reliable annual maintenance services for corporate offices and commercial spaces.",
+    "link": "Office",
+    "category": "annualmain",
+    "id": "amc_office_7g8h",
+    "image": "office1.jpeg"
+  },
+  {
+    "content1": "Shops",
+    "content2": "Annual maintenance plans for retail stores, showrooms, and shopping centers.",
+    "link": "Shops",
+    "category": "annualmain",
+    "id": "amc_shop_1i2j",
+    "image": "shop.jpeg"
+  },
+  {
+    "content1": "Hotels",
+    "content2": "Specialized annual maintenance contracts for the hospitality industry.",
+    "link": "Hotels",
+    "category": "Annual maintenance",
+    "id": "amc_hotel_3k4l",
+    "image": "hotel_maintenance.jpeg"
   },
   {
     "content1": "Solar Panel Maintenance, Services",

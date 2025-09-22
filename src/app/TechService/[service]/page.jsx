@@ -150,20 +150,20 @@ export default function ServicePage({ params }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="font-semibold text-lg mb-3">What's Included:</h3>
-                  <ul className="list-disc pl-6 space-y-3">
+                  <ul className="list-disc pl-6 space-y-6">
                     {serviceDetails[normalizedService]?.includes.map((item, i) => (
                       <li key={i} className="text-green-600 font-medium">{item}</li>
                     ))}
                   </ul>
                 </div>
-                <div>
+                {/* <div>
                   <h3 className="font-semibold text-lg mb-3">Not Included:</h3>
                   <ul className="list-disc pl-6 space-y-3">
                     {serviceDetails[normalizedService]?.excludes.map((item, i) => (
                       <li key={i} className="text-red-600 font-medium">{item}</li>
                     ))}
                   </ul>
-                </div>
+                </div> */}
               </div>
               <div className="mt-6 bg-cyan-50 p-6 rounded-xl">
                 <h3 className="font-semibold text-lg mb-3">📝 Warranty Information</h3>

@@ -45,7 +45,8 @@ const displayService=()=>{
   maintenance: "Maintenance Services",
   handy: "Handyman Services",
   office: "Office Related Services",
-  software: "Software Support Services"
+  software: "Software Support Services",
+  annualmain: "Annual Maintenance"
 };
 return (
     <div>

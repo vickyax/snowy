@@ -9,6 +9,7 @@ const categories = [
   { img: "/img5.png", label: "Software", id: "software" },
   { img: "/img6.png", label: "Maintenance", id: "maintenance" },
   { img: "/img7.png", label: "Office Services", id: "office" },
+  { img: "/img8.png", label: "Annual Maintanance", id: "annualmain" },
 ];
 
 const Small = () => (

@@ -29,8 +29,7 @@ const Card: React.FC<CardProps> = ({ content1, content2, link, image }) => {
             rounded-xl             
             p-2       
             overflow-hidden         
-            transition-all duration-300 ease-in-out
-            hover:shadow-xl       
+            transition-all duration-300 ease-in-out     
             hover:-translate-y-1   
           "
         >
