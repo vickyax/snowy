@@ -17,9 +17,9 @@
     "image": "wifi.png"
   },
   {
-    "content1": "Plumbing Installation, Repair - Major",
+    "content1": "Plumbing Installation, Repair Major",
     "content2": "Piping installation, maintenance, replacement",
-    "link": "Plumbing%20Installation%2C%20Repair%20-%20Major",
+    "link": "Plumbing%20Installation%2C%20Repair%20Major",
     "category": "install",
     "id": "5a591d83-8fab-4fc6-ad93-359789472ef1",
     "image": "plumbinstall.jpeg"
@@ -99,7 +99,7 @@
   {
     "content1": "Laptop",
     "content2": "Screen replacement, Virus removal",
-    "link": "Laptop%20and%20PC",
+    "link": "Laptop",
     "category": "Electronics",
     "id": "cac04bed-74b6-4942-9913-3892ed888b45",
     "image": "laptop.jpeg"
@@ -167,9 +167,9 @@
     "image": "ventinstall.jpeg"
   },
   {
-    "content1": "Plumbing Services - Minor",
+    "content1": "Plumbing Services Minor",
     "content2": "Piping installation, maintenance, replacement",
-    "link": "Plumbing%20Services%20-%20Minor",
+    "link": "Plumbing%20Services%20Minor",
     "category": "handy",
     "id": "5a591d83-wda2ef1",
     "image": "plumbminor.jpeg"

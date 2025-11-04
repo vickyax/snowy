@@ -37,6 +37,22 @@ const Navbar = () => {
 
   const [showText, setShowText] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+const [visibleText, setVisibleText] = useState(1); // 0: none, 1: "Sales &", 2: both
+useEffect(() => {
+  const animationSequence = () => {
+    const interval = setInterval(() => {
+      setVisibleText(prev => prev === 1 ? 2 : 1);
+    }, 2000); // Switch every 2 seconds
+
+    return interval;
+  };
+
+  const intervalId = animationSequence();
+
+  return () => {
+    clearInterval(intervalId);
+  };
+}, []);
 
   useEffect(() => {
     const handleScroll = () => setNavFloat(window.scrollY > 10);
@@ -155,7 +171,7 @@ useEffect(() => {
     <nav
       id="header"
       className={`fixed w-screen z-50 top-0 text-white  ${
-        navFloat ? "bg-[#00BFFF]/80 h-[55px] lg:h-[83px]" : "bg-[#00BFFF]/40 shadow-md h-[180px] lg:h-[140px]"
+        navFloat ? "bg-[#00BFFF]/80 h-[55px] lg:h-[83px]" : "bg-[#00BFFF]/40 shadow-md h-[188px] lg:h-[145px]"
       } transition duration-300 ease-in-out`}
     >
       {showSuccess && (
@@ -165,30 +181,38 @@ useEffect(() => {
       )}
        
 <div className="ml-2 flex mr-1 pb-3 flex-col lg:flex-row items-start text-blue-400">
-  <button
-    className={`no-underline mt-2  font-bold text-[18px] md:text-2xl lg:text-2xl cursor-pointer flex items-center space-x-1 ${
-      navFloat
-        ? "hidden "
-        : "text-blue-800 bg-clip-text "
+ <button
+  className={`no-underline mt-2 font-bold text-[18px] md:text-lg lg:text-xl cursor-pointer flex items-center space-x-2 ${
+    navFloat ? "hidden" : "text-blue-800 bg-clip-text"
+  }`}
+  onClick={() => router.push("/")}>
+  
+  <Image
+    src={snowfeed}
+    alt="Snowfeed Icon"
+    width={45}
+    height={45}
+    style={{ borderRadius: "50%", position: "absolute", zIndex: 1,top:4 }}
+  />
+
+ <div className="leading-tight text-left">
+  <span 
+    className={` text-green-600 transition-all duration-700 absolute top-4 left-15 ease-in-out ${
+      visibleText === 1 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-8"
     }`}
-    onClick={() => router.push("/")}
   >
-    <Image
-      src={snowfeed}
-      alt="Snowfeed Icon"
-      width={45}
-      height={45}
-      style={{ borderRadius: "50%", position: "relative", zIndex: 1 }}
-    />
-    <span
-      className={`transition-all duration-700 ease-in-out ${
-        showText ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
-      }`}
-    >
-      Services
-    </span>
-  </button>
-  <div className={`items-center flex flex-col right-16 lg:right-[720px] ${navFloat ? "hidden" : "absolute"} text-black mt-[16px] z-10 lg:mt-[95px] hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
+    Sales &
+  </span>
+  <span 
+    className={`transition-all duration-700 ease-in-out absolute top-4 left-15  ${
+      visibleText === 2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+    }`}
+  >
+    Services
+  </span>
+</div>
+</button>
+  <div className={`items-center flex flex-col right-16 lg:right-[720px] ${navFloat ? "hidden" : "absolute"} text-black mt-[16px] z-10 lg:mt-[105px] hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
       <Area/>
 
     </div>
@@ -199,7 +223,7 @@ useEffect(() => {
     <button className={`items-center  ${!navFloat ? "hidden" : "absolute"} text-black mt-[10px] z-12 lg:mt-[25px] hover:text-gray-900 focus:outline-none cursor-pointer transition duration-300`}>
       <Cart2  onClick={()=>router.push('/mycart')} sx={{ fontSize: 30 }}/>
     </button>
-    <Search navFloat={navFloat}/>
+    <Search navFloat={navFloat} />
   </div>
   <div className={`${navFloat ? "hidden" : "block"} lg:ml-3 lg:mt-3`}>
   <a href="tel:+919790189488" className="text-black font-bold lg:text-[18px]  flex flex-row sm:text-[8px] items-center mt-1">
@@ -311,7 +335,7 @@ useEffect(() => {
                   <ul className="list-reset">
                     <li className="py-1">
                       <button
-                        onClick={() => { router.push("/my-orders"); setShowMobileProfileDropdown(false); }}
+                        onClick={() => { router.push('/mycart'); setShowMobileProfileDropdown(false); }}
                         className="cursor-pointer bg-gray-100 w-full text-left px-4 py-2 hover:bg-gray-200 rounded-lg transition duration-300"
                       ><Cart  onClick={()=>router.push('/mycart')} className="!h-5 !w-5 mr-1 "/>
                         My Orders
@@ -430,7 +454,7 @@ useEffect(() => {
               <ul className="list-reset">
                 <li className="py-2">
                   <button
-                    onClick={() => { router.push("/my-orders"); setShowProfileDropdown(false); }}
+                    onClick={() => { router.push("/mycart"); setShowProfileDropdown(false); }}
                     className="cursor-pointer w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition duration-300"
                   ><Cart  onClick={()=>router.push('/mycart')} className="!h-5 !w-5 mr-1"/>
                     My Orders

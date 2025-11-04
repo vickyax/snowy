@@ -18,9 +18,10 @@
     "excludes": ["New router purchase", "Network setup"],
     "priceRange": "₹299 - ₹1999",
     "warranty": "30-day service warranty",
+    "img":"jpeg",
     "group": "wf"
   },
-  "Plumbing Installation, Repair - Major": {
+  "Plumbing Installation, Repair Major": {
     "icon": "🔧",
     "description": "From leaky pipes to new fixture installations, our professional plumbers manage major plumbing tasks. We provide comprehensive solutions including pipe replacement and drain cleaning to ensure your plumbing system functions flawlessly.",
     "coverage": ["Piping installation", "Maintenance", "Replacement", "Major plumbing systems"],
@@ -28,6 +29,7 @@
     "excludes": ["Major structural changes", "Water heater replacement (unless specified)"],
     "priceRange": "₹799 - ₹5999",
     "warranty": "30-day service warranty",
+        "img":"jpeg",
     "group": "plm"
   },
   "RO Water Purifier": {
@@ -205,7 +207,8 @@
     "excludes": ["Major part replacements", "New installations"],
     "priceRange": "Varies by contract",
     "warranty": "As per contract",
-    "group": "an"
+    "img": "jpeg",
+    "group": "amc"
   },
   "Electrician": {
     "icon": "⚡",
@@ -235,6 +238,7 @@
     "excludes": ["Major electrical panel upgrades", "Full home rewiring"],
     "priceRange": "₹799 - ₹4999",
     "warranty": "30-day service warranty",
+    "img":"jpeg",
     "group": "el"
   },
   "Smart Home Installations": {
@@ -280,7 +284,7 @@
 "warranty": "60-day service warranty",
 "group": "whs"
 },
-  "Plumbing Services - Minor": {
+  "Plumbing Services Minor": {
     "icon": "🔧",
     "description": "For quick and reliable solutions to everyday plumbing issues, our minor repair service is here to help. We handle everything from dripping faucets and leaky pipes to unclogging drains, preventing small problems from becoming big ones.",
     "coverage": ["Minor piping repairs", "Faucet fixes", "Drain cleaning"],
@@ -288,6 +292,7 @@
     "excludes": ["Major piping replacement", "Structural plumbing changes"],
     "priceRange": "₹299 - ₹1999",
     "warranty": "30-day service warranty",
+        "img":"jpeg",
     "group": "plm"
   },
   "Drywall repair and maintenance": {
@@ -339,6 +344,7 @@
     "excludes": ["New solar system purchase", "Large-scale grid integration"],
     "priceRange": "₹999 - ₹7999",
     "warranty": "90-day service warranty",
+    "img":"jpeg",
     "group": "spi"
   },
   "Operating System Installation & Upgrade": {
@@ -349,6 +355,7 @@
     "excludes": ["Hardware repair", "Proprietary software license costs"],
     "priceRange": "₹499 - ₹2499",
     "warranty": "15-day service warranty",
+    "img":"jpeg",
     "group": "os"
   },
   "Antivirus & Security Software Installation": {
@@ -359,7 +366,8 @@
     "excludes": ["Hardware repair", "Proprietary software licenses"],
     "priceRange": "₹499 - ₹1999",
     "warranty": "15-day service warranty",
-    "group": "av"
+    "img":"jpeg",
+    "group": "os"
   },
   "Driver Installation & Updates": {
     "icon": "💾",
@@ -369,7 +377,8 @@
     "excludes": ["Hardware repair", "Proprietary software licenses"],
     "priceRange": "₹399 - ₹1499",
     "warranty": "15-day service warranty",
-    "group": "di"
+    "img":"jpeg",
+    "group": "os"
   },
   "Data Backup & Recovery": {
     "icon": "💾",
@@ -379,7 +388,8 @@
     "excludes": ["Hardware repair", "Proprietary software licenses"],
     "priceRange": "₹799 - ₹3499",
     "warranty": "15-day service warranty",
-    "group": "db"
+    "img":"jpeg",
+    "group": "os"
   },
   
   "Printer/Scanner Software Setup": {
@@ -400,7 +410,8 @@
     "excludes": ["Major part replacements", "New installations"],
     "priceRange": "Varies by contract",
     "warranty": "As per contract",
-    "group": "al"
+    "img": "jpeg",
+    "group": "amc"
   },
   "Appliance Maintenance": {
     "icon": "🛠️",

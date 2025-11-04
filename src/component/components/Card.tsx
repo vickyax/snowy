@@ -36,7 +36,7 @@ const Card: React.FC<CardProps> = ({ content1, content2, link, image }) => {
           {/* Image Container */}
           <div className="relative w-full aspect-video overflow-hidden">
             <Image
-              src={'/' + (image || "default-image.png")}
+              src={('https://qgwnbursfgkzjvwapfcn.supabase.co/storage/v1/object/public/Public_images/'+image || "default-image.png")}
               alt={content1 || "Service Image"} // Use content1 for a more descriptive alt text
                width={128}  // ~32px × 4 (tailwind's lg:w-32)
             height={150}

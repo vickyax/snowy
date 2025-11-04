@@ -5,14 +5,13 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import Alert from "@mui/material/Alert";
 import { useAuth } from "@/context/AuthContext";
-// import TechnicianCard from '@/component/components/TechnicianCard';
 import ServiceProcess from '@/component/components/ServiceProcess';
 import Navbar from '@/component/Nav';
 import Scroll from '@/component/components/Scroll';
 const serviceDetails = require('@/component/components/servicedetail.json');
 
 export default function ServicePage({ params }) {
-   const { user} = useAuth();
+  const { user, profile } = useAuth();
   const router = useRouter();
   const { service } = React.use(params);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -23,19 +22,44 @@ export default function ServicePage({ params }) {
   const [technicians, setTechnicians] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
-  const [info,setinfo] = useState({});
+  const [info, setinfo] = useState({});
   const [errors, setErrors] = useState("");
-   const [successMessage, setSuccessMessage] = useState(''); // For different messages
+  const [successMessage, setSuccessMessage] = useState('');
+  const [showBookingPopup, setShowBookingPopup] = useState(false);
   
-  const handleApiRequest = async (apiEndpoint, successMsg) => {
+  // Booking form state
+  const [bookingForm, setBookingForm] = useState({
+    name: '',
+    phone: '',
+    address: '',
+    email: ''
+  });
+
+  // Prefill form when profile data is available
+  useEffect(() => {
+    if (profile) {
+      setBookingForm({
+        name: profile.name || '',
+        phone: profile.phone || '',
+        address: profile.location || '',
+        email: profile.email || ''
+      });
+    }
+  }, [profile]);
+
+  const handleApiRequest = async (apiEndpoint, successMsg, bookingData = null) => {
     if (!user) {
       setErrors("Please log in to proceed.");
       router.push('/login');
       return;
     }
     try {
-      setErrors(''); // Clear previous errors
-      const submitData = {...serviceDetails[normalizedService],name:normalizedService}
+      setErrors('');
+      const submitData = {
+        ...serviceDetails[normalizedService],
+        name: normalizedService,
+        ...(bookingData && bookingData)
+      };
       const res = await fetch(apiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -47,6 +71,7 @@ export default function ServicePage({ params }) {
       } else {
         setSuccessMessage(successMsg);
         setShowSuccess(true);
+        setShowBookingPopup(false);
         setTimeout(() => setShowSuccess(false), 3000);
       }
     } catch (err) {
@@ -54,9 +79,38 @@ export default function ServicePage({ params }) {
     }
   };
 
-  const handlebook = (e) => {
+  const handleBookNowClick = (e) => {
     e.preventDefault();
-    handleApiRequest('/api/book/add', 'Service booked successfully!');
+    if (!user) {
+      setErrors("Please log in to proceed.");
+      router.push('/login');
+      return;
+    }
+    setShowBookingPopup(true);
+  };
+
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!bookingForm.name || !bookingForm.phone || !bookingForm.address) {
+      setErrors('Please fill in all required fields');
+      return;
+    }
+
+    // Phone validation (basic)
+    if (!/^\d{10}$/.test(bookingForm.phone.replace(/\D/g, ''))) {
+      setErrors('Please enter a valid 10-digit phone number');
+      return;
+    }
+
+    handleApiRequest('/api/book/add', 'Service booked successfully!', {
+      customerName: bookingForm.name,
+      customerPhone: bookingForm.phone,
+      customerAddress: bookingForm.address,
+      customerEmail: bookingForm.email,
+      selectedDate: selectedDate
+    });
   };
 
   const handleAddToCart = (e) => {
@@ -64,45 +118,147 @@ export default function ServicePage({ params }) {
     handleApiRequest('/api/cart/add', 'Service added to cart!');
   };
 
-
-  // useEffect(() => {
-  //   if (!normalizedService) return;
-  //   const fetchTechnicians = async () => {
-  //     setLoading(true);
-  //     const res = await fetch(`/api/technicians?location=${userLocation}&service=${normalizedService}`);
-  //     const data = await res.json();
-  //     setTechnicians(
-  //       [...data].sort((a, b) => {
-  //         if (sortBy === 'rating') return b.rating - a.rating;
-  //         if (sortBy === 'price') return a.hourlyRate - b.hourlyRate;
-  //         if (sortBy === 'distance') return a.distance - b.distance;
-  //         return 0;
-  //       })
-  //     );
-  //     setLoading(false);
-  //   };
-  //   fetchTechnicians();
-  // }, [userLocation, sortBy, normalizedService]);
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setBookingForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 mb-10 pt-[180px] lg:pt-[120px] text-black">
       <Navbar />
+      
+      {/* Booking Popup Modal */}
+      {showBookingPopup && (
+        <div className="fixed inset-0  bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-gray-800">Complete Your Booking</h2>
+                <button
+                  onClick={() => setShowBookingPopup(false)}
+                  className="text-gray-500 hover:text-gray-700 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+              
+              <form onSubmit={handleBookingSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-700">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={bookingForm.name}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-white text-gray-800 px-4 py-2"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-700">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={bookingForm.phone}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-white text-gray-800 px-4 py-2"
+                    placeholder="10-digit mobile number"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-700">
+                    Service Address <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="address"
+                    value={bookingForm.address}
+                    onChange={handleFormChange}
+                    required
+                    rows="3"
+                    className="w-full rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-white text-gray-800 px-4 py-2"
+                    placeholder="Enter complete service address"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-700">
+                    Email (Optional)
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={bookingForm.email}
+                    onChange={handleFormChange}
+                    className="w-full rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-white text-gray-800 px-4 py-2"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-700">
+                    Preferred Date
+                  </label>
+                  <input
+                    type="date"
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
+                    className="w-full rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-white text-gray-800 px-4 py-2"
+                  />
+                </div>
+
+                {errors && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                    {errors}
+                  </div>
+                )}
+
+                <div className="flex gap-3 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowBookingPopup(false)}
+                    className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition-all duration-200 font-semibold"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-all duration-200 font-semibold"
+                  >
+                    Confirm Booking
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-12">
-        {/* Mobile-first Hero Section with Image Carousel */}
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Image Carousel */}
-           <div className="w-full overflow-x-auto scroll-smooth whitespace-nowrap scrollbar-hide pt-4 px-2">
-      <Scroll group={serviceDetails[normalizedService]?.group} img={serviceDetails[normalizedService]?.img} numcards={5} />
-    </div>
- {showSuccess && (
-          <Alert severity="success" className="fixed top-20 right-4 z-50">
-            {successMessage}
-          </Alert>
-        )}
-          {/* Service Info */}
+          <div className="w-full overflow-x-auto scroll-smooth whitespace-nowrap scrollbar-hide pt-4 px-2">
+            <Scroll group={serviceDetails[normalizedService]?.group} img={serviceDetails[normalizedService]?.img} numcards={5} />
+          </div>
+          
+          {showSuccess && (
+            <Alert severity="success" className="fixed top-20 right-4 z-50">
+              {successMessage}
+            </Alert>
+          )}
+          
           <div className="w-full md:w-1/2 space-y-2">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-               {normalizedService}
+              {normalizedService}
             </h1>
             <p className="text-lg text-gray-600 font-medium">
               {serviceDetails[normalizedService]?.priceRange}
@@ -127,24 +283,19 @@ export default function ServicePage({ params }) {
                 onChange={(e) => setSelectedDate(e.target.value)}
                 className="w-full rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-white text-gray-800 px-4 py-2"
               />
-              <button onClick={handlebook} className="cursor-pointer  w-full  bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-all duration-200">
+              <button onClick={handleBookNowClick} className="cursor-pointer w-full bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-all duration-200">
                 Book Now
               </button>
-              <button onClick={handleAddToCart} className="cursor-pointer  w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-200">
+              <button onClick={handleAddToCart} className="cursor-pointer w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-200">
                 Add to Cart
               </button>
             </div>
-            {errors && <div className="text-red-500 mt-4 text-center">{errors}</div>}
+            {errors && !showBookingPopup && <div className="text-red-500 mt-4 text-center">{errors}</div>}
           </div>
         </div>
 
-       
-
-        {/* Service Details and Technicians */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
-          {/* Left Column */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Service Details */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-2xl font-bold mb-4 text-gray-800">Service Details</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -156,14 +307,6 @@ export default function ServicePage({ params }) {
                     ))}
                   </ul>
                 </div>
-                {/* <div>
-                  <h3 className="font-semibold text-lg mb-3">Not Included:</h3>
-                  <ul className="list-disc pl-6 space-y-3">
-                    {serviceDetails[normalizedService]?.excludes.map((item, i) => (
-                      <li key={i} className="text-red-600 font-medium">{item}</li>
-                    ))}
-                  </ul>
-                </div> */}
               </div>
               <div className="mt-6 bg-cyan-50 p-6 rounded-xl">
                 <h3 className="font-semibold text-lg mb-3">📝 Warranty Information</h3>
@@ -171,7 +314,6 @@ export default function ServicePage({ params }) {
               </div>
             </div>
 
-            {/* Customer Reviews */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-2xl font-bold mb-4 text-gray-800">Customer Reviews</h2>
               <div className="space-y-4">
@@ -193,43 +335,8 @@ export default function ServicePage({ params }) {
                 ))}
               </div>
             </div>
-
-            {/* Technicians
-            <div>
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-800">Available Technicians</h2>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-white text-gray-800 px-4 py-2"
-                >
-                  <option value="rating">Top Rated</option>
-                  <option value="price">Best Price</option>
-                  <option value="distance">Nearest First</option>
-                </select>
-              </div>
-              {loading ? (
-                <div className="text-center py-16">
-                  <div className="animate-spin inline-block w-10 h-10 border-4 border-cyan-500 rounded-full border-t-transparent"></div>
-                </div>
-              ) : technicians.length === 0 ? (
-                <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
-                  <p className="text-gray-600 text-lg">No technicians available in your area</p>
-                  <button className="cursor-pointer  mt-4 bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-all duration-200">
-                    Request Technician
-                  </button>
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {technicians.map((tech, index) => (
-                    <TechnicianCard key={index} tech={tech} />
-                  ))}
-                </div>
-              )}
-            </div> */}
           </div>
 
-          {/* Right Sidebar */}
           <div className="lg:col-span-1 space-y-6">
             <div className="bg-white rounded-2xl shadow-lg p-6 top-6">
               <h2 className="text-2xl font-bold mb-4 text-gray-800">Quick Book</h2>
@@ -246,14 +353,13 @@ export default function ServicePage({ params }) {
                 <div className="bg-yellow-50 p-4 rounded-xl">
                   <h3 className="font-semibold text-lg mb-2">⚠️ Emergency Service?</h3>
                   <p className="text-sm mb-3 text-gray-700">Available 24/7 with priority response</p>
-                  <button className="cursor-pointer  w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200">
+                  <button className="cursor-pointer w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200">
                     Request Emergency Help
                   </button>
                 </div>
-              
               </div>
             </div>
-            <div className="bg-white text-black rounded-2xl  shadow-lg p-6">
+            <div className="bg-white text-black rounded-2xl shadow-lg p-6">
               <ServiceProcess service={normalizedService} />
             </div>
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
@@ -266,7 +372,6 @@ export default function ServicePage({ params }) {
                 Register as Technician
               </button>
             </div>
-            {/* FAQs */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-2xl font-bold mb-4 text-gray-800">Frequently Asked Questions</h2>
               <div className="space-y-4">
@@ -284,15 +389,15 @@ export default function ServicePage({ params }) {
           </div>
         </div>
       </main>
-       {/* Sticky Booking Bar for Mobile */}
-        <div className="fixed flex flex-row bottom-0 overflow-auto bg-transparent shadow-lg  min-w-full md:hidden z-10">
-          <button onClick={handleAddToCart} className="cursor-pointer  w-1/2 bg-green-600 text-white px-6  py-2 hover:bg-green-700 transition-all duration-200">
-                Add to Cart
-              </button>
-          <button onClick={handlebook}  className="cursor-pointer  w-1/2 bg-cyan-600 text-white  px-6 py-2  hover:bg-cyan-700 transition-all duration-200">
-            Book Now
-          </button>
-        </div>
+      
+      <div className="fixed flex flex-row bottom-0 overflow-auto bg-transparent shadow-lg min-w-full md:hidden z-10">
+        <button onClick={handleAddToCart} className="cursor-pointer w-1/2 bg-green-600 text-white px-6 py-2 hover:bg-green-700 transition-all duration-200">
+          Add to Cart
+        </button>
+        <button onClick={handleBookNowClick} className="cursor-pointer w-1/2 bg-cyan-600 text-white px-6 py-2 hover:bg-cyan-700 transition-all duration-200">
+          Book Now
+        </button>
+      </div>
     </div>
   );
 }
